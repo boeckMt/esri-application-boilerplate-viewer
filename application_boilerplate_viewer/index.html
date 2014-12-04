@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <!-- Define the versions of IE that will be used to render the page. See Microsoft documentation for details. Optional. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- End Responsive -->
+    <!-- Use protocol relative urls that way if the browser is viewing the page via HTTPS the js/css file will be requested using the HTTPS protocol -->
+    
+    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/dojo/dojox/layout/resources/FloatingPane.css">
+    <link rel="stylesheet"  href="//js.arcgis.com/3.10/js/esri/css/esri.css">
+    
+    <!-- Load any application specific styles -->
+    <link rel="stylesheet" type="text/css" href="css/boarderContainer.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    
+    <script type="text/javascript">
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            // The locationPath logic below may look confusing but all its doing is 
+            // enabling us to load the api from a CDN and load local modules from the correct location.
+            async: true,
+            parseOnLoad: true,
+            packages: [{
+                name: "application",
+                location: package_path + '/js'
+            },
+            {
+                name: "extras",
+                location: package_path + '/extras'
+            },
+             {
+                name: "config",
+                location: package_path + '/config'
+            },
+            , {
+                name: "arcgis_templates",
+                location: package_path + '/..'
+            }]
+        };
+    </script>
+    
+    <!-- Load jQuery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+  
+    <!--Load ArcGIS API and dojo -->
+    <script type="text/javascript" src="//js.arcgis.com/3.10/"></script>
+    
+    <script type="text/javascript">
+        require([
+            "application/templateOptions",
+            "application/template",
+            "extras/myStatusbar",
+            "dojo/dom-style"
+        ], function(
+            templateConfig,
+            Template,
+            myStatusbar,
+            domStyle
+        ){
+            var sBar = new myStatusbar({
+                id: "statusbar",
+                visible: false
+            },"_bar");
+            sBar.startup();
+            
+            // create the template. This will take care of all the logic required for template applications
+            var myTemplate = new Template(templateConfig);
+            var myApp;
+            // start template
+            myTemplate.startup().then(function(config) {
+                // The config object contains the following properties: helper services, (optionally)
+                // i18n, appid, webmap and any custom values defined by the application.
+                // In this example we have one called theme.
+                config.statusbar = dijit.byId("statusbar");
+                             
+                if(config.webmap === null){
+                    config.statusbar.set("content", config.i18n.viewer.errors.noConfig);
+                    config.statusbar.show();
+                    domStyle.set("preloader", "display", "none");
+                    return;
+                }
+                
+                //mobile detection
+                var isMobile = {
+                    Android: function() { return navigator.userAgent.match(/Android/i);},
+                    BlackBerry: function() {return navigator.userAgent.match(/BlackBerry/i);},
+                    iOS: function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i);},
+                    Opera: function() {return navigator.userAgent.match(/Opera Mini/i);},
+                    Windows: function() {return navigator.userAgent.match(/IEMobile/i);},
+                    any: function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());}
+                };
+                //var smart = (isMobile.any() && (window.innerWidth < 800));
+                var smart = (isMobile.any());
+                
+                if(config.appIsMobile == "Mobile"){
+                    smart = true;    
+                }
+                else if(config.appIsMobile == "Desktop"){
+                    samrt = false;
+                }
+                else{
+                    smart = smart;    
+                }
+                
+                // create my main application. Start placing your logic in the main.js file.
+                if (smart) {
+                    require(["application/BorderContainerMobile", "application/mainMobile"], 
+                    function(BorderContainerMobile, MainMobile){  
+                        BorderContainerMobile.layout();    
+                        //wegen Menu Button    
+                        config.appIsMobile = true;
+                        myApp = new MainMobile();
+                        myApp.startup(config);
+                    }); 
+                }
+                else{
+                    require(["application/BorderContainerNormal", "application/main"], 
+                    function(BorderContainerNormal, Main){  
+                        BorderContainerNormal.layout();
+                        myApp = new Main(); 
+                        myApp.startup(config);
+                    });
+                        
+                }
+
+            }, function(error) {
+                // something went wrong. Let's report it.
+                //myApp.reportError(error);
+                var statusbar = dijit.byId("statusbar");
+                statusbar.set("content", error);
+                statusbar.show();
+                domStyle.set("preloader", "display", "none");
+                return;
+            });
+        });
+    </script>
+    
+</head>
+<body class="claro app-loading" dir="ltr">
+    <div id="preloader" class="loading-indicator">
+        <div class="loading-message" id="loading_message"></div>
+    </div>
+    <div id="_bar"></div>
+    <!-- The ArcGIS API for JavaScript provides bidirectional support.  When viewing the application in an right to left (rtl) language like Hebrew and Arabic the map needs to remain in left-to-right (ltr) mode. Specify this by setting the dir attribute on the div to ltr. -->
+   <!-- <div id="mapDiv" ></div> map div is add in the BoarderContainer-->
+</body>
+</html>

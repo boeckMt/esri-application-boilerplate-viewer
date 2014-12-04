@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dlrconfig>
+	<!-- Einstellungen für die Karte -->
+	<webmap>
+		<item>
+			<!-- in WGS84 -->	
+			<extent xmin='11.0022585449' ymin='47.868915448' xmax='12.1002047119' ymax='48.3430111381'></extent>
+		</item>
+		
+		<itemData>
+			<baseMap>
+				<title>TomTom tiled</title>
+				<baseMapLayers>
+					<!-- ArcGIS Layer ImageServer -->
+					<!-- <layer id="myBasemap" url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" opacity="1" visibility="true"></layer> -->
+					
+					<!-- TiledLayer Layer -->
+					<layer title="TiledLayer" type="WebTiledLayer" subDomains="a,b,c,d" templateUrl="http://${subDomain}.routes.tomtom.com/lbs/map/1/basic/{level}/{col}/{row}/2bbdd0e2-6452-494a-b6b6-5aceb39048eb" visibility="true" opacity="1" copyright="TomTom"></layer>
+					
+				</baseMapLayers>
+			</baseMap>
+			
+			<operationalLayers>
+				
+				<!-- ArcGIS Editor Layer -->			
+				
+				<layer title="Editier Layer_0" id="edit0" url="http://www.zki.dlr.de/arcgis/rest/services/vabene/edittest/FeatureServer/0" visibility="false" opacity="1">
+					<popupInfo title="Label" content="name:Name,desription:Beschreibung,type:Typ"></popupInfo>
+					<!-- (EditGeometry = Editing)  (UpdateAttributes = Editing,Update)   -->
+					<!-- <capabilities>Editing,Update</capabilities> -->
+				</layer>
+				
+				
+				<!-- ArcGIS Layer ohne type -->
+				<!-- <layer title="MapServer" url="http://www.zki.dlr.de/arcgis/rest/services/vabene/vabene_occupancy/MapServer" visibility="false" opacity="1"></layer> -->
+				
+				<layer title="MapServer/Layer0" url="http://www.zki.dlr.de/arcgis/rest/services/vabene/vabene_occupancy/MapServer/0" visibility="false" opacity="1">
+					<popupInfo title="Label" content="area_usage:Belegte Fläche,area_free:Freie Fläche"></popupInfo>
+				</layer>
+			
+				
+				
+				<!-- KML Layer -->
+				<layer title="KMLLayer" type="KML" url="http://www.zki.dlr.de/de/system/files/product/map/kmz/DLR-ZKI-DE-011-P08-V01.kmz" visibility="false" opacity="1"></layer>
+				
+				 
+				<!-- KML Layer -->
+				<!-- <layer title="KML DAV Hütten" type="KML" url="http://felsinfo.alpenverein.de/export/huts" visibility="false" opacity="1"></layer> -->
+				
+				
+				
+				
+				<!-- GeoRSS Layer -->
+				<layer title="GeoRSSlayer" type="GeoRSS" url="http://www.zki.dlr.de/de/activations/georss" visibility="true" opacity="1"></layer>
+				
+				
+				<!-- WMS Layer | braucht extent="Xmin, Ymin, Xmax, Ymax" Extent darf nicht +/- 180 sein geht bei Projektion nicht | und spatialReferences="3857" für GetMap Request-->
+				<layer title="WMS pegelonline" type="WMS" version="1.1.1" url="http://www.pegelonline.wsv.de/webservices/gis/wms/aktuell/nswhsw" visibleLayers="TendenzWasserstand,Pegelnamen" visibility="false" opacity="1" spatialReferences="3857">
+					<extent xmin="5.09019" ymin="46.9823" xmax="15.9068" ymax="55.1555"></extent>
+				</layer>
+				
+
+				
+				<layer title="WMS OpenWeather" type="WMS" version="1.1.1" url="http://wms.openweathermap.org/service" visibleLayers="temp" visibility="false" opacity="1" spatialReferences="900913"> -->
+					<extent xmin="-179.9" ymin="-85.0511287798" xmax="179.9" ymax="85.0511287798"></extent>
+				</layer>
+				
+			
+				
+				<!-- TiledLayer Layer -->
+				<layer title="OpenWeather precipitation" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/precipitation/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+				
+				<layer title="OpenWeather clouds" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/clouds/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+				
+				<layer title="OpenWeather pressure" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/pressure/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+		
+				<layer title="OpenWeather wind speed" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/wind/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+				
+				<layer title="OpenWeather temperature" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/temp/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+
+				<layer title="OpenWeather snow" type="WebTiledLayer"  templateUrl="http://undefined.tile.openweathermap.org/map/snow/{level}/{col}/{row}" visibility="false" opacity="1" copyright="© OpenStreetMap OpenWeatherMap"></layer>
+
+				<layer title="osm public Transport" type="WebTiledLayer"  templateUrl="http://www.openptmap.org/tiles/{level}/{col}/{row}.png" visibility="false" opacity="1" copyright="© OpenStreetMap"></layer>
+
+				<layer title="ASTER SRTM" type="WebTiledLayer"  templateUrl="http://korona.geog.uni-heidelberg.de:8004/tms_hs.ashx?x={col}&amp;y={row}&amp;z={level}" visibility="false" opacity="1" copyright="© OpenStreetMap uni-heidelberg"></layer>
+
+
+
+				<!-- ArcGIS Layer ImageServer -->
+				<!-- <layer title="arcgisImageServer" id="FalseColor_6386" url="http://imagery.arcgisonline.com/ArcGIS/rest/services/LandsatGLS/FalseColor/ImageServer" visibility="false" opacity="1"></layer> -->
+			
+			</operationalLayers>
+			
+			<!-- WebMap Version -->
+			<version>1.9.1</version>
+			
+			<bookmarks>
+				<mark>
+					<name>zuCSVlayer</name>
+					<extent xmin="-1.3573009790398998E7" ymin="2301318.910282009" xmax="-8778879.376354018" ymax="5060389.883262997" wkid="102100"></extent>
+				</mark>
+				<mark>
+					<name>zuKMLlayer</name>
+					<extent xmin="1.0035636513867445E7" ymin="-677890.7041602314" xmax="1.4829766927912425E7" ymax="2081180.2688207573" wkid="102100"></extent>
+				</mark>
+			</bookmarks>
+
+		</itemData>	
+		
+	</webmap>
+	
+	<!-- Einstellungen für Applikation -->
+	<application>
+		<proxyurl>extras/proxy.php</proxyurl>
+		
+		<!-- Farbschema der Applikation // green // blue // gray -->
+		<theme>gray</theme>
+		
+		<bingmapskey></bingmapskey>
+		
+		<displayBasemapGallery>true</displayBasemapGallery>
+		<!-- wenn false dann ausgewählte Basemaps in Gallery -->
+		<displayArcGISBasemaps>false</displayArcGISBasemaps>
+		<GalleryBasemaps>
+			<!-- Auswahl möglicher Basemaps -->
+			<WorldImagery>true</WorldImagery>
+			<World_Street_Map>true</World_Street_Map>
+			<World_Topo_Map>false</World_Topo_Map>
+			<World_Light_Gray>false</World_Light_Gray>
+			<NatGeo_World_Map>false</NatGeo_World_Map>
+			
+			<BingMapsRoad>false</BingMapsRoad>
+			<BingMapsAerial>false</BingMapsAerial>
+			<BingMapsHybrid>false</BingMapsHybrid>
+			
+			<TomTom>true</TomTom>
+			<CLC2006_Dyna>false</CLC2006_Dyna>
+			<landscan2010>true</landscan2010>
+			<OSM_Mapnik>false</OSM_Mapnik>
+			<OSM_DE>true</OSM_DE>
+			<OSM_Geofabrik>false</OSM_Geofabrik>
+			<OpenTopoMap>false</OpenTopoMap>
+			<OSM_Transport>false</OSM_Transport>
+			<mapQuest>false</mapQuest>
+			<OSM_Stamen_Toner>false</OSM_Stamen_Toner>
+			<osm_cycle>true</osm_cycle>
+			<osm_hikebike>true</osm_hikebike>
+			<osm_landscape>true</osm_landscape>
+			<osm_publicTransport>true</osm_publicTransport>
+			<osm_roads>true</osm_roads>
+			<falk_osm>false</falk_osm>
+		</GalleryBasemaps>
+		<!-- ************************************** -->
+		
+		<!-- Zoom Beschränkung -->
+		<setZoom>false</setZoom>
+		<!-- 0 -> Welt    | 7 bis 5 -> Länder   | 10 bis 12 -> Städte  |  ab ca. 14 -> Gebäude  |  17 bis 18 -> Autos -->
+		<minZoom>7</minZoom>
+		<maxZoom>15</maxZoom>
+		<!-- ************************************** -->
+		
+		<!-- Buttons in der Headerleiste -->		
+		<displayDrawTool>true</displayDrawTool>
+		
+		<displaySearchTool>true</displaySearchTool>
+		
+		<displayMeasureTool>true</displayMeasureTool>
+		
+		<displayEditor>true</displayEditor>
+		
+		<displayLegend>true</displayLegend>
+		
+		<displayAppInfoText>true</displayAppInfoText>
+		<AppInfoTextStr><![CDATA[
+			<table border="0">
+				<tr>
+				<b>Interpretation</b><br></br>
+				On Friday morning November ....
+				</tr>
+			</table>
+			
+			<table border="0">
+				<tr>
+				<b>Framework</b><br></br>
+				The products elaborated for this Rapid Mapping Activity are releasd to the best of our ability, within a very short time frame, optimising the material available...
+				</tr>
+				<tr>
+				<td><img src="http://www.dlr.de/blogs/en/Portaldata/66/Resources/woerner/charter_logo_200x150.jpg" height="40"></img></td>
+				<td><img src="http://bpa.logo-assistent.de/files/download/4/BMI_Vorschau_en.gif" height="40"></img></td>
+				</tr>
+			</table> 
+		]]></AppInfoTextStr>
+		
+		<displayLayerList>true</displayLayerList>
+		
+		<displayBookmarks>true</displayBookmarks>
+		
+		<displayPrintDijit>true</displayPrintDijit>
+	
+		<!-- Allgemeine Einstellungen-->
+		<displayButtonLabels>false</displayButtonLabels>
+		
+		<CooOnRightClick>true</CooOnRightClick>
+		
+		<displayScalebar>true</displayScalebar>
+		
+		<displaySlider>true</displaySlider>
+		<sliderStyle>small</sliderStyle><!-- small | large -->
+		
+		<displayLogos>true</displayLogos>
+		<logosStr>images/zki-logo.png,images/charter.png</logosStr>
+		
+		<displayTitle>true</displayTitle>
+		<titleStr>Test Aktivierung</titleStr>
+		
+		<displayOverviewMap>true</displayOverviewMap>
+		
+		<displayAppHelp>true</displayAppHelp>
+		
+		<displayLocateButton>true</displayLocateButton>
+		
+		<displayLayerSwipe>true</displayLayerSwipe>
+		
+		<!-- Desktop oder Mobile default is false -->
+		<appIsMobile>false</appIsMobile>
+		
+	</application>
+</dlrconfig>

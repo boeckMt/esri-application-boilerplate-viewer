@@ -1,0 +1,564 @@
+
+#mapDiv{
+	background-image:url("../images/grid.png"); 
+}
+
+#header {
+    border-bottom: 1px solid;
+    overflow: hidden;
+}
+
+#header .dijitArrowButtonInner {
+        display: none !important;
+}
+
+
+/* MenuButton   */
+.esriMenuIcon {
+    background-image: url("../images/MenuIcon.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    margin: 4px 0 4px 4px;
+    width: 16px;
+}
+
+/* locateButton   */
+.esriLocateIcon {
+    background-image: url("../images/locateIcon.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+}
+
+/* Draw Tool   */
+.esriDrawIcon {
+   background-image: url("../images/drawIcon.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+.esriSaveIcon {
+    background-image: url("../images/save.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 16px;
+}
+
+
+#draDiv ul{
+	list-style:none;
+	padding-left: 20px;
+}
+
+
+.drawPoint {
+	background-image: url("../images/i_draw_point.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    background-position:center;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+.drawPoint:hover {
+    background-image: url("../images/i_draw_point_normal.png");
+}
+
+.drawPoly {
+    background-image: url("../images/i_draw_poly.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    background-position:center;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+.drawPoly:hover{
+	background-image: url("../images/i_draw_poly_normal.png");
+}
+
+.drawLine {
+    background-image: url("../images/i_draw_line.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    background-position:center;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+.drawLine:hover{
+	background-image: url("../images/i_draw_line_normal.png");
+}
+
+.drawElli {
+    background-image: url("../images/i_draw_ellipse.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    background-position:center;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+.drawElli:hover{
+	background-image: url("../images/i_draw_ellipse_normal.png");	
+}
+
+.drawRect {
+    background-image: url("../images/i_draw_rect.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    background-position:center;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+.drawRect:hover{
+	background-image: url("../images/i_draw_rect_normal.png");	
+}
+
+
+/* ZoomToLayer   */
+.esriZoomToIcon{
+    background-image: url("../images/LayerZoomTo16.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    margin: 0px 0px 0px 0px; /* margin: 4px 0 4px 4px; */
+    width: 16px;
+}
+
+
+
+#layerTable .dijitButton .dijitButtonNode, 
+#layerTable .dijitDropDownButton .dijitButtonNode, 
+#layerTable .dijitComboButton .dijitButtonNode, 
+#layerTable .dijitToggleButton .dijitButtonNode{
+	 background: none;
+	 background-color: none;
+     background-image: none;
+     border: none;
+     border-radius: 0px;
+     box-shadow: none;
+     color: #ffffff;
+     padding: 0px;
+}
+
+
+
+/* basemapGallery   */
+#panBasemap .esriBasemapGalleryNode{
+	float:none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.esriBasemapIcon {
+    background-image: url("../images/basemapsIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+/* ----------------------   */
+
+
+
+/* LayerList   */
+#layerMenu {
+    border: 1px solid;
+    position: relative;
+    z-index: 1;
+    
+}
+
+#layerMenu .dijitReset{
+	border: none;
+}
+
+#layerMenu .dijitMenu .dijitMenuItemSelected td, 
+#layerMenu .dijitComboBoxMenu .dijitMenuItemSelected{
+	border: none;
+}
+
+
+#layerMenu .dijitReset .dijitMenuItemLabel{
+	font-size: 11px;
+	margin-top: 4px;
+	position:absolute;
+}
+
+
+#layerMenu .dijitMenu .dijitMenuItemHover td, .claro .dijitMenu .dijitMenuItemSelected td, .claro .dijitMenuItemHover, .claro .dijitComboBoxMenu .dijitMenuItemHover, .claro .dijitMenuItemSelected {
+    background: none;
+    border: none;
+}
+#layerMenu .dijitMenuItemActive {
+    background: none;
+    border: none;
+}
+
+#layerMenu .dijitSlider .dijitReset{
+	padding: 0px;
+	
+}
+
+.esriLayerIcon{
+    background-image: url("../images/LayerIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+/* ----------------------   */
+
+/* HelpmButton */
+.esriHelpIcon{
+    background-image: url("../images/helpIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+
+#AppHelpFloater ul{
+	margin-top: 5px;
+	margin-bottom: 8px;
+	padding-left: 20px;
+	font-size: 12px;
+}
+
+#AppHelpFloater h5{
+	margin: 5px;	
+}
+
+
+/* dojo Floater */
+.dojoxFloatingPaneTitle{
+	cursor:move;
+}
+
+
+
+/* Bookmarks */
+.esriBookmarkIcon{
+    background-image: url("../images/bookmarkIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+#bookmarkView {
+    background-color: #FFFFFF;
+   /*  border: 1px solid;
+    border-color:  #CCCCCC; */
+    overflow: auto !important;
+    color:#000000;
+    position: relative;
+    z-index: 1;
+    /* overflow-x:hidden !important; Bookmark Scrollbar */
+    
+}
+
+.esriBookmarks {
+    border-color: #769DC0;
+    border-style: solid;
+    border-width: 0px;
+    width: 215px;
+}
+
+/* Editor */
+.esriEditIcon {
+    background-image: url("../images/editIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+
+
+/* SearchTool   */
+#SearchTool {
+	background: none;
+    border: 1px solid;
+    overflow: auto !important;
+    position: relative;
+    padding: 0;
+    z-index: 1;
+}
+
+#SearchTool .dijitTooltipContainer {
+    background-color: none;
+    background-image: none;
+    background-position: center bottom;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    color: #000000;
+    font-size: 1em;
+    padding: 0 5px 2px 4px;
+}
+
+#SearchTool .dijitTooltipConnector{
+	display: none;
+	
+}
+
+.simpleGeocoder .esriGeocoder {
+    border: 1px solid;
+    border-radius: 5px;
+    display: block;
+    margin: 0;
+    width: 100%;
+    margin-top: 4px;
+}
+
+
+.esriSearchIcon {
+    background-image: url("../images/searchIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    cursor: pointer;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+/* ----------------------   */
+
+/* MeasureTool   */
+.esriMeasureIcon {
+    background-image: url("../images/measureIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+#floater {
+    border: 1px solid;
+    border-radius: 3px;
+    left: 50px;
+    overflow: hidden;
+    padding: 0 !important;
+    top: 0;
+}
+
+/* ----------------------   */
+
+
+/* swipeButton   */
+.esriSwipeIcon {
+    background-image: url("../images/swipeIcon.png");
+ 	background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+}
+
+/* Legende */
+.esriLegendIcon {
+    background-image: url("../images/legendIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+
+
+/* Info Icon */
+.esriInfoIcon{
+	background-image: url("../images/infoIcon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 18px;
+    /* margin: 4px 0 4px 4px;*/
+    width: 18px;
+}
+
+/* Print Icon */
+.esriPrintIcon{
+  background-image: url("../images/printIcon.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  height:18px;
+  /* margin: 4px 0 4px 4px;*/
+  width:18px;
+}
+
+
+/* ----------------------- */
+
+/* Scalebar */
+.esriScalebarSecondNumber {
+    left: 95%;
+}
+.esriScalebarLineLabel {
+    position: relative;
+}
+.esriScalebarLabel {
+    font-size: 11px;
+    font-weight: bolder;
+    height: 14px;
+    position: absolute;
+    text-align: center;
+    top: 3px;
+    width: 42px;;
+}
+
+.esriScalebarLine {
+    border: 3px solid;
+    height: 6px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.esriScalebarMetricLine {
+    border-top-style: none;
+}
+
+.esriScalebarEnglishLine {
+    border-bottom-style: none;
+    top: -3px;
+}
+
+
+.esriScaleLabelDiv {
+    padding: 2px;
+    position: relative;
+    top: -5px;
+    width: 100%;
+    height: 7px;
+}
+
+/* ------------------------- */
+
+/* Accordion */
+
+.claro .dijitAccordionContainer .dijitAccordionChildWrapper {
+    border: 1px solid;
+    margin: 0 2px 2px;
+}
+.AccordionPane{
+    overflow-y:scroll;
+   
+}
+
+/* --------------------------- */
+/*  zoom Button of the map */
+.esriSimpleSliderTL {
+    left: 20px;
+    top: 20px;
+}
+.esriSimpleSlider {
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+}
+
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+    border-bottom: 2px solid;
+}
+
+
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton:hover {
+    border-bottom: 2px solid;
+}
+
+
+/* mobile Slider 
+.mblSliderH {
+    height: 8px;
+    width: 200px;
+}
+.mblSlider {
+    background-image: linear-gradient(to bottom, #CECECE 0%, #EEEEEE 50%, #F8F8F8 50%, #FDFDFD 100%);
+    border-color: #B0B0B0;
+    border-radius: 8px;
+    border-style: inset;
+    border-width: 1px;
+    margin: 15px;
+}
+
+.mblSliderH .mblSliderProgressBar {
+    height: 100%;
+}
+.mblSliderTransition {
+    transition-duration: 400ms;
+}
+.mblSliderProgressBar {
+    background-image: linear-gradient(to bottom, #2859B1 0%, #3F84EB 50%, #4C8EEE 50%, #75ACFB 100%);
+    border-radius: 8px;
+}
+
+.mblSliderTouchBox {
+    background-color: rgba(0, 0, 0, 0);
+    border: medium none;
+    height: 100%;
+    left: -12pt;
+    margin: 0;
+    padding: 12pt;
+    top: -12pt;
+    width: 100%;
+}
+
+.mblSliderH .mblSliderHandle {
+    top: 50%;
+}
+.mblSliderTransition {
+    transition-duration: 400ms;
+}
+.mblSliderHandle {
+    background-image: linear-gradient(to bottom, #CCCCCC 0%, #FAFAFA 100%);
+    border-color: #9D9D9D;
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 1px;
+    height: 18px;
+    margin: -10px 0 0 -10px;
+    width: 18px;
+}
+
+*/
+
+/* Tools in Help Floater */
+.helpTools{
+	margin-left: 14px;
+
+}
+
+/* mobile Panel 
+.claro .dijitTitlePaneTitleOpen .dijitArrowNode, .claro .dijitFieldsetTitleOpen .dijitArrowNode {
+    background-position: 0 0;
+}
+
+.claro .dijitTitlePaneTitleClosed .dijitArrowNode, .claro .dijitFieldsetTitleClosed .dijitArrowNode {
+    background-position: -28px 0;
+}
+
+.claro .dijitTitlePane .dijitArrowNode, .claro .dijitFieldset .dijitArrowNode {
+	background-image: url("../images/spriteArrows.png");
+    height: 16px;
+    width: 13px;
+}
+
+*/

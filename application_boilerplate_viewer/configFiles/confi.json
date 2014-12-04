@@ -1,0 +1,133 @@
+{
+  "source": "configurationPanel.json",
+  "folderId": null,
+  "values": {
+		
+"webmap":  {
+"item" :{
+ 
+	  "extent": [
+	    [
+	      10.6955405345,
+	      47.8320960182
+	    ],
+	    [
+	      12.4533530345,
+	      48.3813766379
+	    ]
+	  ]
+	  
+	},
+"itemData":{
+  "operationalLayers": [],
+  "baseMap": {"baseMapLayers": [{
+    "templateUrl": "http://${subDomain}.routes.tomtom.com/lbs/map/1/basic/{level}/{col}/{row}/2bbdd0e2-6452-494a-b6b6-5aceb39048eb",
+    "id": "WebTiled_1643",
+    "type": "WebTiledLayer",
+    "title": "TomTom",
+    "copyright": "TomTom",
+    "fullExtent": {
+      "xmin": -2.0037508342787E7,
+      "ymin": -2.003750834278E7,
+      "xmax": 2.003750834278E7,
+      "ymax": 2.0037508342787E7,
+      "spatialReference": {"wkid": 102100}
+    },
+    "subDomains": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "visibility": true,
+    "opacity": 1
+  }]},
+  "version": "1.9.1"
+}
+},
+        "proxyurl": "extras/proxy.php",
+ 
+        "theme": "androidApp",
+        
+        "bingmapskey": "",
+
+		 "displayBasemapGallery" : true,
+         "displayArcGISBasemaps": false,
+
+         "WorldImagery":true,
+         "World_Street_Map":true,
+         "World_Topo_Map":true,
+         "World_Light_Gray":true,
+         "NatGeo_World_Map":true,
+         "BingMapsRoad":false,
+         "BingMapsAerial":false,
+         "BingMapsHybrid":false,
+         
+         "TomTom":true,
+         "CLC2006_Dyna":false,
+         "landscan2010":false,
+         "OSM_Mapnik":true,
+         "OSM_DE":true,
+         "OSM_Geofabrik":true,
+         "OpenTopoMap": true,
+         "OSM_Transport":true,
+         "mapQuest":true,
+         "OSM_Stamen_Toner":false,
+		 
+		 "osm_cycle": true,
+         "osm_hikebike":true,
+         "osm_landscape":true,
+         "osm_publicTransport":true,
+         "osm_roads":true,
+         "falk_osm":true,
+        
+        
+        "setZoom":false,
+        "minZoom": 7, 
+    	"maxZoom": 15, 
+    	
+
+        "displayDrawTool":true,
+        
+        "displaySearchTool" : true,
+        
+        "displayMeasureTool": true,
+        
+        "displayEditor": false,
+        
+        "displayLegend": false,
+        
+        "displayAppInfoText": false,
+		"AppInfoTextStr" : "Framework: The products elaborated...",
+		
+		"displayLayerList": false,
+		
+		"displayBookmarks": false,
+		
+		"displayPrintDijit": false,
+		
+		"displayButtonLabels": false,
+        
+        "CooOnRightClick":false,
+        
+        "displayScalebar" : false,
+
+        "displaySlider" : false,
+        "sliderStyle" : "small",
+        
+        "displayLogos": true,
+        "logosStr" : "images/appIcon.png",
+        
+        "displayTitle": false,
+        "titleStr" : "Test web map",
+        
+        "displayOverviewMap": false,
+        
+        "displayAppHelp": false,
+        
+        "displayLocateButton": true,
+        
+        "appIsMobile": "false"
+        
+	}
+}

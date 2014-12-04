@@ -1,0 +1,236 @@
+html, body {
+	color: #333
+}
+#header {
+	color: #fff;
+	background: #fb3;
+	border-bottom: 1px solid #f80;
+	box-shadow: 0 0 2px 0 #f80
+}
+#rightPane {
+	padding-top: 2px;
+	background-color: #fff
+}
+.headerTitle {
+	color: #fff
+}
+#header .dijitButton .dijitButtonNode, #header .dijitDropDownButton .dijitButtonNode, #header .dijitComboButton .dijitButtonNode, #header .dijitToggleButton .dijitButtonNode {
+	background: 0;
+	background-color: none;
+	background-image: none;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	color: #fff
+}
+#header .dijitButtonNodeHover .dijitButtonNode, #header .dijitDropDownButtonHover .dijitButtonNode, #header .dijitComboButton .dijitButtonNodeHover, #header .dijitToggleButtonHover .dijitButtonNode {
+	background: #fff;
+	color: #f80;
+	border-radius: 4px
+}
+#header .dijitButtonActive .dijitButtonNode, #header .dijitDropDownButtonActive .dijitButtonNode, #header .dijitComboButtonActive .dijitButtonNode, #header .dijitToggleButtonActive .dijitButtonNode, #header .dijitToggleButtonChecked .dijitButtonNode {
+	background: #fff;
+	color: #f80;
+	border-radius: 4px
+}
+.dojoxFloatingPaneTitle {
+	color: #fff;
+	background: #fb3;
+	border: 1px solid #fb3;
+	box-shadow: 0 0 2px 0 #fb3;
+	padding: 4px 4px 2px;
+	white-space: nowrap
+}
+.esriSimpleSliderTL {
+	left: 20px;
+	top: 20px
+}
+.esriSimpleSlider {
+	-moz-user-select: none;
+	background-color: #fb3;
+	border: 1px solid #f80;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	position: absolute;
+	text-align: center;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.3)
+}
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+	border-bottom: 2px solid #fff
+}
+.esriSimpleSliderIncrementButton:hover, .esriSimpleSliderDecrementButton:hover {
+	background-color: #fff;
+	color: #f80
+}
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton:hover {
+	border-bottom: 2px solid #fff
+}
+.claro .dijitAccordionTitle {
+	background: #fb3;
+	color: #fff;
+	min-height: 17px;
+	padding: 5px 7px 2px;
+	box-shadow: 0 0 2px 0 #fb3
+}
+.claro .dijitAccordionInnerContainerActive .dijitAccordionTitle {
+	background: #fff;
+	color: #f80;
+	min-height: 17px;
+	padding: 5px 7px 2px
+}
+.claro .dijitAccordionInnerContainerHover .dijitAccordionTitle {
+	background: #fff;
+	color: #f80
+}
+.claro .dijitAccordionInnerContainerSelected .dijitAccordionTitle {
+	color: #f80;
+	background-image: none;
+	background-repeat: none
+}
+.claro .dijitAccordionInnerContainerSelected {
+	background-color: #fff;
+	border-color: none
+}
+.esriPrint {
+	padding: 3px 0 3px 0
+}
+.esriPrint a {
+	color: #fff;
+	padding-left: 10px
+}
+#printInfo {
+	padding: 5px 0 0 0;
+	overflow: hidden
+}
+#print_ .dijitButton .dijitButtonNode, #print_ .dijitDropDownButton .dijitButtonNode, #print_ .dijitComboButton .dijitButtonNode, #print_ .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+	background-repeat: repeat-x;
+	background: #fb3;
+	border: 1px solid #f80;
+	border-radius: 4px;
+	color: #fff;
+	padding: 2px 4px 4px
+}
+#print_ .esriPrint table {
+	margin-top: 0
+}
+#print_ .esriPrint a {
+	background-image: none;
+	background-repeat: repeat-x;
+	background: #fb3;
+	border: 1px solid #f80;
+	border-radius: 4px;
+	color: #fff;
+	padding: 2px 4px 4px;
+	margin-left: 3px
+}
+#print_ .dijitButtonNodeHover .dijitButtonNode, #print_ .dijitDropDownButtonHover .dijitButtonNode, #print_ .dijitComboButton .dijitButtonNodeHover, #print_ .dijitToggleButtonHover .dijitButtonNode {
+	background: #fff;
+	color: #f80;
+	border-radius: 4px
+}
+#dijit_Menu_1 {
+	background: #fb3;
+	border: 1px solid #fb3;
+	box-shadow: 0 0 2px 0 #fb3;
+	border-radius: 4px;
+	color: #fff
+}
+#dijit_Menu_1 td {
+	border: 0;
+	color: #fff
+}
+#dijit_Menu_1 .dijitMenuItemHover td {
+	color: #f80
+}
+.claro .dijitMenu .dijitMenuItemHover td {
+	background-color: #fff;
+	background-image: none;
+	color: #f80
+}
+.esriScalebarSecondNumber {
+	left: 95%;
+	top: 0
+}
+.esriScalebarLineLabel {
+	position: relative
+}
+.esriScalebarLabel {
+	color: #666;
+	background: none repeat scroll 0 0 rgba(255,255,255,0.7)
+}
+.esriScalebarLine {
+	border-color: #fb3
+}
+.esriPopup .titlePane {
+	background-color: #fb3
+}
+#drawClear .dijitButton .dijitButtonNode, #drawClear .dijitDropDownButton .dijitButtonNode, #drawClear .dijitComboButton .dijitButtonNode, #drawClear .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+	background-repeat: repeat-x;
+	background: #fb3;
+	border: 1px solid #f80;
+	border-radius: 4px;
+	color: #fff;
+	padding: 2px 4px 4px
+}
+#drawClear .dijitButtonHover .dijitButtonNode, #drawClear .dijitDropDownButtonHover .dijitButtonNode, #drawClear .dijitComboButton .dijitButtonNodeHover, #drawClear .dijitComboButton .dijitDownArrowButtonHover, #drawClear .dijitToggleButtonHover .dijitButtonNode {
+	background: #fff;
+	color: #f80;
+	border-radius: 4px
+}
+#swipeHelp .dijitButton .dijitButtonNode, #swipeHelp .dijitDropDownButton .dijitButtonNode, #swipeHelp .dijitComboButton .dijitButtonNode, #swipeHelp .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+	background-repeat: repeat-x;
+	background: #fb3;
+	border: 1px solid #f80;
+	border-radius: 4px;
+	color: #fff;
+	padding: 2px 4px 4px
+}
+#swipeHelp .dijitButtonHover .dijitButtonNode, #swipeHelp .dijitDropDownButtonHover .dijitButtonNode, #swipeHelp .dijitComboButton .dijitButtonNodeHover, #swipeHelp .dijitComboButton .dijitDownArrowButtonHover, #swipeHelp .dijitToggleButtonHover .dijitButtonNode {
+	background: #fff;
+	color: #f80;
+	border-radius: 4px
+}
+.claro .dijitTitlePaneTitle {
+	background: #33b5e5;
+	color: #fff;
+	min-height: 17px;
+	padding: 5px 7px 2px;
+	border-color: #ccc;
+	border-top: 0;
+	box-shadow: 0 0 2px 0 #09c
+}
+.claro .dijitTitlePaneTitleHover {
+	background: #fff;
+	border-color: #f80;
+	color: #f80
+}
+#rightPane {
+	background: #999
+}
+#LocateButton {
+	padding: 0;
+	background-color: #fb3;
+	background-image: url("../images/locate_white.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 1px solid #f80;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px
+}
+#LocateButton:hover {
+	background-color: #fff;
+	background-image: url("../images/locate_orange.png")
+}
+.esriOverviewMap.ovwTR .ovwShow, .esriOverviewMap.ovwBL .ovwHide {
+	background: url("../images/overviewGreen.png") repeat scroll 0 0 rgba(0,0,0,0)
+}
+.esriOverviewMap.ovwBL .ovwShow, .esriOverviewMap.ovwTR .ovwHide {
+	background: url("../images/overviewGreen.png") repeat scroll 0 -78px rgba(0,0,0,0)
+}

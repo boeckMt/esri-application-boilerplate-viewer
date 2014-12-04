@@ -1,0 +1,423 @@
+html,body{
+ 	color: #146ca1;
+}
+#header{
+  	color:#ffffff; 
+  	/* header background gradient, thanks to http://www.colorzilla.com/gradient-editor/ */
+  	background: #155599; /* Old browsers */
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%); /* FF3.6+ */
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1)); /* Chrome,Safari4+ */
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%); /* Chrome10+,Safari5.1+ */
+ 	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%); /* Opera11.10+ */
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%); /* IE10+ */
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 ); /* IE6-9 */
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%); /* W3C */
+ 
+ 	border-bottom: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+}
+
+#rightPane{
+  background-color: #fff;
+}
+
+
+.headerTitle {
+    color: #ffffff;
+}
+
+/* Header Button */
+#header .dijitButton .dijitButtonNode, 
+#header .dijitDropDownButton .dijitButtonNode, 
+#header .dijitComboButton .dijitButtonNode, 
+#header .dijitToggleButton .dijitButtonNode{
+	 background: none;
+	 background-color: none;
+     background-image: none;
+     border: none;
+     border-radius: 0px;
+     box-shadow: none;
+     color: #ffffff;
+}
+
+/*  Header Button Hover */
+#header .dijitButtonNodeHover .dijitButtonNode, 
+#header .dijitDropDownButtonHover .dijitButtonNode, 
+#header .dijitComboButton .dijitButtonNodeHover, 
+#header .dijitToggleButtonHover .dijitButtonNode{
+	 background: #FFFFFF;
+	 color: #155599;
+	 border-radius: 4px;
+}
+
+/*  Header Button Toggle */
+#header .dijitButtonActive .dijitButtonNode, 
+#header .dijitDropDownButtonActive .dijitButtonNode, 
+#header .dijitComboButtonActive .dijitButtonNode, 
+#header .dijitToggleButtonActive .dijitButtonNode, 
+#header .dijitToggleButtonChecked .dijitButtonNode {
+    background: #FFFFFF;
+	 color: #155599;
+	 border-radius: 4px;
+}
+
+
+/*  FlotePane */
+.dojoxFloatingPaneTitle {
+	 color:#fff; 
+  /* header background gradient, thanks to http://www.colorzilla.com/gradient-editor/ */
+  	background: #155599; /* Old browsers */
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%); /* FF3.6+ */
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1)); /* Chrome,Safari4+ */
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%); /* Chrome10+,Safari5.1+ */
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%); /* Opera11.10+ */
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%); /* IE10+ */
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 ); /* IE6-9 */
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%); /* W3C */
+   
+   	border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    
+    padding: 4px 4px 2px;
+    white-space: nowrap;
+}
+
+/*  zoom Button of the map */
+.esriSimpleSliderTL {
+    left: 20px;
+    top: 20px;
+}
+.esriSimpleSlider {
+    -moz-user-select: none;
+    background-color:#155599;
+
+    border: 1px solid #155599;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+    border-bottom: 2px solid #ffffff;
+}
+
+.esriSimpleSliderIncrementButton:hover, .esriSimpleSliderDecrementButton:hover {
+    background-color:#ffffff;
+    color:#155599;
+}
+
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton:hover {
+    border-bottom: 2px solid #ffffff;
+}
+
+
+/* rightPane Accordion collapse */
+.claro .dijitAccordionTitle {
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+    color: #ffffff;
+    min-height: 17px;
+    padding: 5px 7px 2px;
+    
+    box-shadow: 0 0 2px 0 #155599;
+}
+
+.claro .dijitAccordionInnerContainerActive .dijitAccordionTitle {
+    background: #ffffff;
+    color: #155599;
+    min-height: 17px;
+    padding: 5px 7px 2px;
+}
+
+.claro .dijitAccordionInnerContainerHover .dijitAccordionTitle {
+	background: #ffffff;
+    color: #155599;
+}
+
+.claro .dijitAccordionInnerContainerSelected .dijitAccordionTitle {
+    color: #155599;
+    background-image: none;
+    background-repeat: none;
+}
+
+.claro .dijitAccordionInnerContainerSelected {
+    background-color: #ffffff;
+    border-color: none;
+}
+
+/* print Tool*/
+.esriPrint {
+	padding: 3px 0px 3px 0px;
+}
+
+.esriPrint a {
+	color: #FFFFFF;
+	padding-left: 10px;
+}
+
+#printInfo{
+	padding: 5px 0px 0px 0px;
+	overflow:hidden;
+}
+
+
+#print_  .dijitButton .dijitButtonNode, 
+#print_  .dijitDropDownButton .dijitButtonNode, 
+#print_  .dijitComboButton .dijitButtonNode, 
+#print_  .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+    background-repeat: repeat-x;
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+
+    border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 2px 4px 4px;
+}
+#print_ .esriPrint table{
+	margin-top:0px;
+}
+
+
+#print_ .esriPrint a{
+	background-image: none;
+    background-repeat: repeat-x;
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+
+    border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 2px 4px 4px;
+    margin-left: 3px;
+}
+
+/*  Print Button Hover */
+#print_ .dijitButtonNodeHover .dijitButtonNode, 
+#print_ .dijitDropDownButtonHover .dijitButtonNode, 
+#print_ .dijitComboButton .dijitButtonNodeHover, 
+#print_ .dijitToggleButtonHover .dijitButtonNode{
+	 background: #FFFFFF;
+	 color: #155599;
+	 border-radius: 4px;
+}
+
+
+/* right click Menu */
+#dijit_Menu_1 {
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+
+    border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+/* damit kein border!!!*/
+#dijit_Menu_1 td{
+	border: none;
+	color: #ffffff;
+}
+
+#dijit_Menu_1 .dijitMenuItemHover td{
+	color: #155599;
+}
+
+.claro .dijitMenu .dijitMenuItemHover td{
+	background-color: #ffffff;
+	background-image: none;	
+	color: #155599;
+}
+
+/* Scalebar */
+.esriScalebarSecondNumber {
+    left: 95%;
+    top:0px;
+}
+.esriScalebarLineLabel {
+    position: relative;
+}
+.esriScalebarLabel {
+    color: #666666;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+}
+
+.esriScalebarLine {
+    border-color: #155599;
+}
+
+/* Info Window */
+.esriPopup .titlePane {  
+    background-color: #155599;
+}
+
+/* draw Tool */
+#drawClear  .dijitButton .dijitButtonNode, 
+#drawClear  .dijitDropDownButton .dijitButtonNode, 
+#drawClear  .dijitComboButton .dijitButtonNode, 
+#drawClear  .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+    background-repeat: repeat-x;
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+
+    border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 2px 4px 4px;
+}
+
+/*  draw Button Hover */
+#drawClear .dijitButtonHover .dijitButtonNode,
+#drawClear .dijitDropDownButtonHover .dijitButtonNode,
+#drawClear .dijitComboButton .dijitButtonNodeHover,
+#drawClear .dijitComboButton .dijitDownArrowButtonHover,
+#drawClear .dijitToggleButtonHover .dijitButtonNode{
+	background: #FFFFFF;
+	color: #155599;
+	border-radius: 4px;
+	
+}
+
+
+/* swipe Tool */
+#swipeHelp  .dijitButton .dijitButtonNode, 
+#swipeHelp  .dijitDropDownButton .dijitButtonNode, 
+#swipeHelp  .dijitComboButton .dijitButtonNode, 
+#swipeHelp  .dijitToggleButton .dijitButtonNode {
+	background-image: none;
+    background-repeat: repeat-x;
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+
+    border: 1px solid #155599;
+    box-shadow: 0 0 2px 0 #155599;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 2px 4px 4px;
+}
+
+/*  swipe Button Hover */
+#swipeHelp .dijitButtonHover .dijitButtonNode,
+#swipeHelp .dijitDropDownButtonHover .dijitButtonNode,
+#swipeHelp .dijitComboButton .dijitButtonNodeHover,
+#swipeHelp .dijitComboButton .dijitDownArrowButtonHover,
+#swipeHelp .dijitToggleButtonHover .dijitButtonNode{
+	background: #FFFFFF;
+	color: #155599;
+	border-radius: 4px;
+	
+}
+
+/* Title Pane for Mobile */
+.claro .dijitTitlePaneTitle {
+    background: #155599;
+  	background: -moz-linear-gradient(top, #155599 0%, #146ca1 100%);
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#155599), color-stop(100%,#146ca1));
+  	background: -webkit-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -o-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	background: -ms-linear-gradient(top, #155599 0%,#146ca1 100%);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#155599', endColorstr='#146ca1',GradientType=0 );
+  	background: linear-gradient(top, #155599 0%,#146ca1 100%);
+    color: #ffffff;
+    min-height: 17px;
+    padding: 5px 7px 2px;
+    border-color: #CCCCCC;
+    border-top: 0px;
+    
+    box-shadow: 0 0 2px 0 #155599;
+}
+
+.claro .dijitTitlePaneTitleHover{
+	background: #ffffff;
+	border-color: #155599;
+    color: #155599;
+}
+
+#rightPane{
+	background: #146ca1;	
+}
+
+/* Mobile Locate */
+#LocateButton{
+	padding: 0;
+	background-image: url("../images/locate_white.png");
+    background-color:#155599;
+    
+    background-repeat:no-repeat;
+	background-position:center;
+    
+	border: 1px solid #155599;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    width: 30px;
+    height: 30px;
+
+}
+
+#LocateButton:hover{
+	background-color:#ffffff;
+	background-image: url("../images/locate_blue.png");	
+}
+
+/* Overview Map*/
+.esriOverviewMap.ovwTR .ovwShow, .esriOverviewMap.ovwBL .ovwHide {
+    background: url("../images/overviewBlue.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.esriOverviewMap.ovwBL .ovwShow, .esriOverviewMap.ovwTR .ovwHide {
+    background: url("../images/overviewBlue.png") repeat scroll 0 -78px rgba(0, 0, 0, 0);
+}
+
+
+
+
+
