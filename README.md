@@ -1,6 +1,6 @@
 # esri-application-boilerplate-viewer
 
-This Application is a configurable web mapping viewer like the arcgis-viewer-flex (https://github.com/Esri/arcgis-viewer-flex) 
+This Application is a configurable web mapping viewer like the arcgis-viewer-flex (https://github.com/Esri/arcgis-viewer-flex)
 and is build on the application-boilerplate-js (https://github.com/Esri/application-boilerplate-js).
 
 
@@ -26,7 +26,7 @@ The App extends the application-boilerplate-js with two layouts and functions li
 *	Get coordinates with a context menu.
 *	Draw shapes and save the as KML.
 *	Geolocate your position.
-*	Swipe layers of your layer list. 
+*	Swipe layers of your layer list.
 
 
 I hope it is helping someone who don't knows how to start building a Template with the application-boilerplate-js.
@@ -40,13 +40,13 @@ Review the following ArcGIS.com help topics for details on Templates:
 *   [About web application templates](http://resources.arcgis.com/en/help/arcgisonline/#/*   About_web_application_templates/010q000000nt000000/)
 *   [Creating web application templates](http://resources.arcgis.com/en/help/arcgisonline/#/Creating_web_application_templates/010q00000072000000)
 *   [Adding configurable parameters to templates](http://resources.arcgis.com/en/help/arcgisonline/#/Adding_configurable_parameters_to_templates/010q000000ns000000/)
-	
-	
+
+
 ## Folders and Files
 
 The template consists of the following folders and files:
 
-**/config/:** A folder for your application's default configuration file. 
+**/config/:** A folder for your application's default configuration file.
 
 *   **defaults.js:** Define the default configuration information for the template. You can use this file to specify things like a default web map id, a proxy url, default services, a Bing maps key, default color theme and other template-specific settings.
 
@@ -81,10 +81,10 @@ The template consists of the following folders and files:
     *   helperServices: geometry, print, locator service urls
     *   i18n: Strings and isRightToLeft property that can be used to determine if the application is being viewed from a language where text is read left-to-right like Hebrew or Arabic.
     *   proxy  url
-	
+
 	*	get config files over ajax request (if the url parameter config is set the webmap and all other configuration comes from your config file).
 *   **templateOptions.js:** Options file for configuring your template to query for specific resources and items. You can edit this file and your template can enable or disable querying for things such as localization files, ArcGIS group information, group items, custom url parameters, etc.
-    
+
 **index.html**: The default html file for the application (there is a query if it should be mobile or desktop).
 
 **/resources/**: Contains helpful files for your application.
@@ -93,11 +93,19 @@ The template consists of the following folders and files:
 ## Instructions
 
 1. Download and unzip the .zip file or clone the repository.
-2. Web-enable the directory.
-3. In the browser navigate to ../index.html?webmap=24e01ef45d40423f95300ad2abc5038a
-	or ../index.html?config=confi.json
-	or ../index.html?config=config2.xml
-4. Start writing your own template!
+
+2. If you need dojo and esri api locally (For this stepp you need node ,npm, bower and grunt)
+>Install dependencies with npm install, run "[grunt slurp](https://github.com/steveoh/grunt-esri-slurp)" and bower install and load the api in the index.html with `<script src="bower_components/dojo/dojo.js"></script>`
+
+3. If you have no web-server change to folder server and run npm install and then node index.js
+
+4. In the browser navigate to localhost:9000/
+
+ >?webmap=24e01ef45d40423f95300ad2abc5038a <br>
+ or ?config=confi.json <br>
+ or ?config=config2.xml
+
+5. Start writing your own template!
 
 [New to Github? Get started here.](https://github.com/)
 

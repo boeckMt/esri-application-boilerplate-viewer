@@ -1,12 +1,13 @@
-define(["application/BorderContainerNormal", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/layout/AccordionContainer", "dojo/dom-construct", "dojo/dom-style", "extras/myStatusbar"],
-function(BorderContainerNormal, BorderContainer, ContentPane, AccordionContainer, domConstruct, domStyle, myStatusbar){
+define(["application/BorderContainerNormal", "dijit/layout/LayoutContainer", "dijit/layout/ContentPane", "dijit/layout/AccordionContainer", "dojo/dom-construct", "dojo/dom-style", "extras/myStatusbar"],
+function(BorderContainerNormal, LayoutContainer, ContentPane, AccordionContainer, domConstruct, domStyle, myStatusbar){
 
 	BorderContainerNormal.layout = function(){
             // create a BorderContainer as the top widget in the hierarchy
-            var bc = new BorderContainer({
-                style: "height: 100%; width: 100%;",
-                gutters: false, //für Rand um und in Contaner
-                id: "BorderContainer"
+            var bc = new LayoutContainer({
+                "style": "height: 100%; width: 100%;",
+                //"gutters": false, //no resizing
+								//"class":"noBorder",
+                "id": "BorderContainer"
             });
 
             // create a CollapsePanel (AccordionContainer) for the rightPane
@@ -27,7 +28,6 @@ function(BorderContainerNormal, BorderContainer, ContentPane, AccordionContainer
 
             var cp2 = new ContentPane({
                 region: "center",
-								style: "left: 0px; right: 0px",
                 id: "mapDiv"
             });
             bc.addChild(cp2);
@@ -37,7 +37,7 @@ function(BorderContainerNormal, BorderContainer, ContentPane, AccordionContainer
 
             var cp3 = new ContentPane({
                 region: "top",
-                style: "height: 35px; width: 100%; top: 0; left: 0;",
+                style: "height: 35px; width: 100%;",
                 id: "header",
                 content: HeaderContent
             });

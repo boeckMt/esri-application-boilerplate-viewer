@@ -6,5 +6,6 @@
 
     },
   "devDependencies": {
+    "grunt-esri-slurp":"1.1.0"
   }
 }
