@@ -12,19 +12,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- End Responsive -->
     <!-- Use protocol relative urls that way if the browser is viewing the page via HTTPS the js/css file will be requested using the HTTPS protocol -->
-    
-    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/dojo/dojox/layout/resources/FloatingPane.css">
-    <link rel="stylesheet"  href="//js.arcgis.com/3.10/js/esri/css/esri.css">
-    
+
+    <link rel="stylesheet" href="//js.arcgis.com/3.11/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.11/dojox/layout/resources/FloatingPane.css">
+    <link rel="stylesheet"  href="//js.arcgis.com/3.11/esri/css/esri.css">
+
     <!-- Load any application specific styles -->
     <link rel="stylesheet" type="text/css" href="css/boarderContainer.css">
     <!-- <link rel="stylesheet" href="css/main.css"> -->
-    
+
     <script type="text/javascript">
         var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
         var dojoConfig = {
-            // The locationPath logic below may look confusing but all its doing is 
+            // The locationPath logic below may look confusing but all its doing is
             // enabling us to load the api from a CDN and load local modules from the correct location.
             async: true,
             parseOnLoad: true,
@@ -40,19 +40,23 @@
                 name: "config",
                 location: package_path + '/config'
             },
-            , {
+            {
                 name: "arcgis_templates",
                 location: package_path + '/..'
-            }]
+            }
+            ]
         };
     </script>
-    
+
+
     <!-- Load jQuery -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
-  
+
     <!--Load ArcGIS API and dojo -->
-    <script type="text/javascript" src="//js.arcgis.com/3.10/"></script>
-    
+    <!-- <script type="text/javascript" src="//js.arcgis.com/3.10/"></script> -->
+    <!--<script type="text/javascript" src="http://js.arcgis.com/3.11"></script>-->
+    <script type="text/javascript" src="bower_components/init.js"></script>
+
     <script type="text/javascript">
         require([
             "application/templateOptions",
@@ -70,7 +74,7 @@
                 visible: false
             },"_bar");
             sBar.startup();
-            
+
             // create the template. This will take care of all the logic required for template applications
             var myTemplate = new Template(templateConfig);
             var myApp;
@@ -80,14 +84,14 @@
                 // i18n, appid, webmap and any custom values defined by the application.
                 // In this example we have one called theme.
                 config.statusbar = dijit.byId("statusbar");
-                             
+
                 if(config.webmap === null){
                     config.statusbar.set("content", config.i18n.viewer.errors.noConfig);
                     config.statusbar.show();
                     domStyle.set("preloader", "display", "none");
                     return;
                 }
-                
+
                 //mobile detection
                 var isMobile = {
                     Android: function() { return navigator.userAgent.match(/Android/i);},
@@ -99,36 +103,36 @@
                 };
                 //var smart = (isMobile.any() && (window.innerWidth < 800));
                 var smart = (isMobile.any());
-                
+
                 if(config.appIsMobile == "Mobile"){
-                    smart = true;    
+                    smart = true;
                 }
                 else if(config.appIsMobile == "Desktop"){
                     samrt = false;
                 }
                 else{
-                    smart = smart;    
+                    smart = smart;
                 }
-                
+
                 // create my main application. Start placing your logic in the main.js file.
                 if (smart) {
-                    require(["application/BorderContainerMobile", "application/mainMobile"], 
-                    function(BorderContainerMobile, MainMobile){  
-                        BorderContainerMobile.layout();    
-                        //wegen Menu Button    
+                    require(["application/BorderContainerMobile", "application/mainMobile"],
+                    function(BorderContainerMobile, MainMobile){
+                        BorderContainerMobile.layout();
+                        //wegen Menu Button
                         config.appIsMobile = true;
                         myApp = new MainMobile();
                         myApp.startup(config);
-                    }); 
+                    });
                 }
                 else{
-                    require(["application/BorderContainerNormal", "application/main"], 
-                    function(BorderContainerNormal, Main){  
+                    require(["application/BorderContainerNormal", "application/main"],
+                    function(BorderContainerNormal, Main){
                         BorderContainerNormal.layout();
-                        myApp = new Main(); 
+                        myApp = new Main();
                         myApp.startup(config);
                     });
-                        
+
                 }
 
             }, function(error) {
@@ -142,7 +146,7 @@
             });
         });
     </script>
-    
+
 </head>
 <body class="claro app-loading" dir="ltr">
     <div id="preloader" class="loading-indicator">

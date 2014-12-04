@@ -52,6 +52,11 @@ html, body {
     padding: 0px;
     margin: 0px;
 }
+
+.claro .dijitSplitContainer-child, .claro .dijitBorderContainer-child {
+    border: none;
+}
+
 .claro .dijitContentPane {
     padding: 0px;
     margin: 0px;
@@ -62,6 +67,8 @@ html, body {
     margin: 0;
     width: 3px;
 }
+
+
 
 /* header menus */
 #webmap-toolbar-left span{
@@ -96,7 +103,7 @@ html, body {
 
 .headerLogos{
 	margin-top:2px;
-	float:left;	
+	float:left;
 }
 
 
@@ -128,8 +135,8 @@ html, body {
 	padding-left: 10px;
 	padding-top: 2px;
 	color: #FF0000;
-    
-    
+
+
 }
 
 .myStatusbarCloseIcon {
@@ -141,5 +148,3 @@ html, body {
     width: 12px;
     cursor: pointer;
 }
-
-

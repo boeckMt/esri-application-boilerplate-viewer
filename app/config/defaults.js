@@ -18,10 +18,10 @@
 define({
     //Default configuration settings for the application. This is where you'll define things like a bing maps key,
     //default web map, default app color theme and more. These values can be overwritten by template configuration settings and url parameters.
-    
+
     "appIsMobile": false,
     "appURL": window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')),
-    
+
     "appid": "",// "b554f0e8ade745ce8c369939f9697a02",
     "webmap": null, //"24e01ef45d40423f95300ad2abc5038a",
     "oauthappid": null, //"AFTKRmv16wj14N3z",
@@ -35,11 +35,11 @@ define({
     //color theme.
     "theme": "gray", // green // blue
     "bingKey": "", //Enter the url to your organizations bing maps key if you want to use bing basemaps
-    
+
     //Defaults to arcgis.com. Set this value to your portal or organization host name.
-    "sharinghost": location.protocol + "//" + "www.arcgis.com", //Defaults to arcgis.com. Set this value to your portal or organization host name. 
+    "sharinghost": location.protocol + "//" + "www.arcgis.com", //Defaults to arcgis.com. Set this value to your portal or organization host name.
     "units": null,
-    
+
     //"GeometryServiceURL" : "http://www.zki.dlr.de/arcgis/rest/services/Utilities/Geometry/GeometryServer",
     "helperServices": {
         "geometry": {
@@ -55,7 +55,7 @@ define({
             "url": null
         }]
     },
-    
+
     //Basemaps-------------------------------
          "displayBasemapGallery" : false,
          "displayArcGISBasemaps": false, //default false!
@@ -68,8 +68,8 @@ define({
          "BingMapsRoad":false,
          "BingMapsAerial":false,
          "BingMapsHybrid":false,
-         
-         "TomTom":false,
+
+         "Waze":false,
          "CLC2006_Dyna":false,
          "landscan2010":false,
          "OSM_Mapnik":false,
@@ -79,16 +79,16 @@ define({
          "OSM_Transport":false,
          "mapQuest":false,
          "OSM_Stamen_Toner":false,
-         
+
          "osm_cycle": false,
          "osm_hikebike":false,
          "osm_landscape":false,
          "osm_publicTransport":false,
          "osm_roads":false,
          "falk_osm":false,
-         
+
          //---------------------------------------
-         
+
          //object for BasemapGallery
          _layersObj : {
                         "WorldImagery" : {
@@ -143,13 +143,13 @@ define({
                             "icon" : "http://ecn.t1.tiles.virtualearth.net/tiles/h12022102.jpeg?g=2204&mkt=en-US"
                         },
 
-                        "TomTom" : {
-                            "title" : "TomTom",
+                        "Waze" : {
+                            "title" : "Waze",
                             "type" : "WebTiledLayer",
-                            "url" : "http://${subDomain}.routes.tomtom.com/lbs/map/1/basic/{level}/{col}/{row}/2bbdd0e2-6452-494a-b6b6-5aceb39048eb",
-                            "copy" : "© TomTom",
-                            "icon" : "http://a.routes.tomtom.com/lbs/map/1/basic/8/137/88/2bbdd0e2-6452-494a-b6b6-5aceb39048eb",
-                            "subDomains" : "a,b,c,d"
+                            "url" : "http://worldtiles${subDomain}.waze.com/tiles/{level}/{col}/{row}.png",
+                            "copy" : "© Waze",
+                            "icon" : "http://worldtiles2.waze.com/tiles/9/278/184.png",
+                            "subDomains" : "1,2,3,4"
                         },
                         "CLC2006_Dyna" : {
                             "title" : "Corine Landcover 2006",
@@ -269,56 +269,56 @@ define({
                         }
                 },
                 //Basemaps end-------------------------------
-     
-        
+
+
         "setZoom":false,
         "minZoom": 7,  // 0 -> Welt    | 7 bis 5 -> Länder   | 10 bis 12 -> Städte  |  ab ca. 14 -> Gebäude  |  17 bis 18 -> Autos
-        "maxZoom": 15, 
-        
+        "maxZoom": 15,
+
         "displayScalebar" : false,
-        
+
         "displaySlider" : false,
         "sliderStyle" : "small", //small / large
-        
+
         "displayLogos": false,
         "logosStr" : "images/zki-logo.png, images/charter.png, images/vabene_logo.png",
-        
+
         "displayTitle": false,
         "titleStr" : "ZKI Test Aktivierung",
-        
+
         "displayOverviewMap": false,
-       
+
         "displayButtonLabels": false,
-        
+
         "displaySearchTool" : false,
-        
+
         "displayMeasureTool": false,
-        
+
         "displayEditor": false,
-        
+
         "displayLegend": false,
-        
+
         "displayAppInfoText": false,
         "AppInfoTextStr" : "Framework: The products elaborated...",
-        
+
         "displayLayerList": false,
-        
+
         "displayBookmarks": false,
-        
+
         "CooOnRightClick":false,
-        
+
         "displayPrintDijit": false,
-        
+
         "displayDrawTool": false,
-        
+
         "displayLocateButton": false,
-        
+
         "displayLayerSwipe": false,
-        
+
         //-------------------------------------
         "displayAppHelp": false,
         //"AppHelpInfo": "<h5>error handling</h5>" + "<ul>" + "<li>the loading.gif remains at start ->try to refresh the Browser</li>" + "</ul>" + "<h5>Navigation with Mouse/Keyboard</h5>" + "<ul>" + "<li>SHIFT + Drag the mouse to zoom in</li>" + "<li>SHIFT + CTRL + Drag the mouse to zoom out</li>" + "<li>SHIFT + Click to recenter</li>" + "<li>Double Click to Center and Zoom in</li>" + "<li>Use arrow keys to pan</li>" + "<li>Right Click on the map to get coordinates</li>" + "</ul>" + "<h5>Editor</h5>" + "<ul>" + "<li>To start Editing: a editable Layer has to be checked in the Layerlist</li>" + "<li>To create features: click a template then start drawing on the map</li>" + "<li>To move features: click and drag the feature to a new location</li>" + "<li>To edit features: click the feature to display the vertices and the attributes</li>" + "</ul>",
         "AppHelpInfo":'<h5>Tools</h5><table class="helpTools"><tr> <td><span class="esriInfoIcon"></td> <td>Map Information</td></tr><tr> <td><span class="esriDrawIcon"></td> <td>Draw Tool</td></tr><tr> <td><span class="esriLocateIcon"></td> <td>Geolocation</td></tr><tr> <td><span class="esriBasemapIcon"></td> <td>Basemaps</td></tr><tr> <td><span class="esriMeasureIcon"></td> <td>Measure Tool</td></tr><tr> <td><span class="esriLayerIcon"></td> <td>Layer Tree</td></tr><tr> <td><span class="esriBookmarkIcon"></td> <td>Bookmarks</td></tr><tr> <td><span class="esriLegendIcon"></td> <td>Map Legend</td></tr><tr> <td><span class="esriPrintIcon"></td> <td>Print Map</td></tr><tr> <td><span class="esriEditIcon"></td> <td>Draw on Feature Layer</td></tr><tr> <td><span class="esriSearchIcon"></td> <td>Find Address</td></tr></table> <h5>Navigation with Mouse/Keyboard</h5><ul> <li> SHIFT + Drag the mouse to zoom in </li> <li> SHIFT + CTRL + Drag the mouse to zoom out </li> <li> SHIFT + Click to recenter </li> <li> Double Click to Center and Zoom in </li> <li> Use arrow keys to pan </li> <li> Right Click on the map to get coordinates </li></ul><h5>Editor</h5><ul> <li> To start Editing: a editable Layer has to be checked in the Layerlist </li> <li> To create features: click a template then start drawing on the map </li> <li> To move features: click and drag the feature to a new location </li> <li> To edit features: click the feature to display the vertices and the attributes </li></ul>',
-        
+
         "rightPaneToggleWidth":"270px"
 });

@@ -1,6 +1,6 @@
 
 #mapDiv{
-	background-image:url("../images/grid.png"); 
+	background-image:url("../images/grid.png");
 }
 
 #header {
@@ -107,7 +107,7 @@
     cursor:pointer;
 }
 .drawElli:hover{
-	background-image: url("../images/i_draw_ellipse_normal.png");	
+	background-image: url("../images/i_draw_ellipse_normal.png");
 }
 
 .drawRect {
@@ -120,7 +120,7 @@
     cursor:pointer;
 }
 .drawRect:hover{
-	background-image: url("../images/i_draw_rect_normal.png");	
+	background-image: url("../images/i_draw_rect_normal.png");
 }
 
 
@@ -136,9 +136,9 @@
 
 
 
-#layerTable .dijitButton .dijitButtonNode, 
-#layerTable .dijitDropDownButton .dijitButtonNode, 
-#layerTable .dijitComboButton .dijitButtonNode, 
+#layerTable .dijitButton .dijitButtonNode,
+#layerTable .dijitDropDownButton .dijitButtonNode,
+#layerTable .dijitComboButton .dijitButtonNode,
 #layerTable .dijitToggleButton .dijitButtonNode{
 	 background: none;
 	 background-color: none;
@@ -176,14 +176,14 @@
     border: 1px solid;
     position: relative;
     z-index: 1;
-    
+
 }
 
 #layerMenu .dijitReset{
 	border: none;
 }
 
-#layerMenu .dijitMenu .dijitMenuItemSelected td, 
+#layerMenu .dijitMenu .dijitMenuItemSelected td,
 #layerMenu .dijitComboBoxMenu .dijitMenuItemSelected{
 	border: none;
 }
@@ -207,7 +207,7 @@
 
 #layerMenu .dijitSlider .dijitReset{
 	padding: 0px;
-	
+
 }
 
 .esriLayerIcon{
@@ -239,7 +239,7 @@
 }
 
 #AppHelpFloater h5{
-	margin: 5px;	
+	margin: 5px;
 }
 
 
@@ -269,7 +269,7 @@
     position: relative;
     z-index: 1;
     /* overflow-x:hidden !important; Bookmark Scrollbar */
-    
+
 }
 
 .esriBookmarks {
@@ -315,7 +315,7 @@
 
 #SearchTool .dijitTooltipConnector{
 	display: none;
-	
+
 }
 
 .simpleGeocoder .esriGeocoder {
@@ -459,7 +459,7 @@
 }
 .AccordionPane{
     overflow-y:scroll;
-   
+
 }
 
 /* --------------------------- */
@@ -485,7 +485,7 @@
 }
 
 
-/* mobile Slider 
+/* mobile Slider
 .mblSliderH {
     height: 8px;
     width: 200px;
@@ -546,7 +546,7 @@
 
 }
 
-/* mobile Panel 
+/* mobile Panel
 .claro .dijitTitlePaneTitleOpen .dijitArrowNode, .claro .dijitFieldsetTitleOpen .dijitArrowNode {
     background-position: 0 0;
 }

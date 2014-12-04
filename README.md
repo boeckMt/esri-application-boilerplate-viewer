@@ -30,7 +30,7 @@ The App extends the application-boilerplate-js with two layouts and functions li
 
 
 I hope it is helping someone who don't knows how to start building a Template with the application-boilerplate-js.
-[View it live](coming soon...)
+[View it live](http://boeckmt.github.io/application_boilerplate_viewer/?config=config2.xml)
 
 ## Getting Started
 
