@@ -15,24 +15,24 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(["dojo/ready", 
-"dojo/_base/declare", 
-"dojo/_base/lang", 
-"esri/arcgis/utils", 
-"dojo/dom", 
-"dojo/dom-class", 
+define(["dojo/ready",
+"dojo/_base/declare",
+"dojo/_base/lang",
+"esri/arcgis/utils",
+"dojo/dom",
+"dojo/dom-class",
 "dojo/on",
 
 "dojo/dom-construct",
 "dijit/layout/ContentPane",
-"dijit/form/Button", 
+"dijit/form/Button",
 "dijit/form/DropDownButton",
-"dijit/form/ToggleButton", 
+"dijit/form/ToggleButton",
 "dijit/Menu",
-"dijit/PopupMenuItem", 
+"dijit/PopupMenuItem",
 "dijit/form/HorizontalSlider",
 "dojox/layout/FloatingPane",
-"dojo/_base/connect"], 
+"dojo/_base/connect"],
 function (
     ready,
     declare,
@@ -41,7 +41,7 @@ function (
     dom,
     domClass,
     on,
-    
+
     domConstruct,
     ContentPane,
     Button,
@@ -61,28 +61,28 @@ function (
             // any url parameters and any application specific configuration information.
             if (config) {
                 this.config = config;
-                
+
                 function addCSS(url){
                     var ss = document.createElement("link");
                     ss.type = "text/css";
                     ss.rel = "stylesheet";
                     ss.href = url;
                     document.getElementsByTagName("head")[0].appendChild(ss);
-                } 
-                
+                }
+
                 addCSS(this.config.appURL + "/css/mainDesktop.css");
-            
+
                 //load the specified theme
-                if (this.config.theme) {                
+                if (this.config.theme) {
                     addCSS(this.config.appURL + "/css/" + this.config.theme + ".css");
                 }
 
-                
+
                 // document ready
                 ready(lang.hitch(this, function () {
                     //supply either the webmap id or, if available, the item info
                     var itemInfo = this.config.itemInfo || this.config.webmap;
-                    
+
                     this._createWebMap(itemInfo);
                 }));
             } else {
@@ -169,8 +169,8 @@ function (
             /*** LayerSwipe ***/
            (this.config.displayLayerSwipe == true)? this._createLayerSwipe(this.map, this.map.layerInfo, this.config) : console.log("LayerSwipe not activated");
 
-            
-            
+
+
             // remove loading class from body
             domClass.remove(document.body, "app-loading");
         },
@@ -197,8 +197,8 @@ function (
                     sliderStyle : this.config.sliderStyle
                 };
             }
-               
-            
+
+
             arcgisUtils.createMap(itemInfo, "mapDiv", {
                 mapOptions: mapOptions,
                 bingMapsKey: this.config.bingKey
@@ -208,11 +208,11 @@ function (
                 // any custom options you defined for the template. In this example that is the 'theme' property.
                 // Here' we'll use it to update the application to match the specified color theme.
                 // console.log(this.config);
-                
+
                 this.clickHandler = response.clickEventHandle;
                 this.clickListener = response.clickEventListener;
                 this.map = response.map;
-                
+
                 this.config.itemLayers = response.itemInfo.itemData.operationalLayers;
                 this.response = response;
 
@@ -232,32 +232,32 @@ function (
                 }
             }), this.reportError);
         },
-        
+
         //-------------------------------------------------------------------------------------------------------
-        
+
         /*** Help Button ***/
         _createAppHelp : function(config) {
             require(["dojo/dom-construct", "dojo/dom-style", "dojo/domReady!"], function(domConstruct, domStyle) {
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 var _content = config.AppHelpInfo;
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    
+
                 domConstruct.create("div", {
                     id : "AppHelpFloater"
                 }, "mapDiv");
                 domConstruct.create("div", {
                     id : "AppHelpDiv"
                 }, "AppHelpFloater");
-    
+
                 var height = window.innerHeight;
                 var width = window.innerWidth;
                 var _floaterH = 200;
                 var _floaterW = 300;
                 var top = (window.innerHeight / 2) - (_floaterH);
                 var right = (window.innerWidth / 2) - (_floaterW / 2);
-    
+
                 var pos = "position:absolute;top:" + top + "px;right:" + right + "px;width:" + _floaterW + "px;height:" + _floaterH + "px;z-index:100;visibility:hidden;";
-    
+
                 var fp = new FloatingPane({
                     title : config.i18n.tools.help.title,
                     resizable : false,
@@ -268,12 +268,12 @@ function (
                     id : 'AppHelpFloater'
                 }, dom.byId('AppHelpFloater'));
                 fp.startup();
-    
+
                 var mylabel;
                 (config.appIsMobile == true) ? mylabel = " " : mylabel = config.i18n.tools.help.label;
-    
+
                 (config.displayButtonLabels == true) ? mylabel = config.i18n.tools.help.label : mylabel = " ";
-    
+
                 var toggleButton = new ToggleButton({
                     label : mylabel,
                     title : config.i18n.tools.help.title,
@@ -284,11 +284,11 @@ function (
                         toggleFloter();
                     }
                 });
-    
+
                 var toolbarR = dom.byId('webmap-toolbar-right');
                 toolbarR.appendChild(toggleButton.domNode);
-               
-    
+
+
                 function toggleFloter() {
                     var floater = dijit.byId('AppHelpFloater');
                     if (dom.byId('AppHelpFloater').style.visibility === 'hidden') {
@@ -299,8 +299,8 @@ function (
                         //uncheck the measure toggle button
                     }
                 }
-            
-            
+
+
             });
         },
 
@@ -320,7 +320,7 @@ function (
             });
 
         },
-        
+
 
         /*** BasemapGallery ***/
         _createBasemapGallery : function(map, config, myThis) {
@@ -346,23 +346,23 @@ function (
 
                     //Layer Object stores all Layers for the BasemapGallery
                     var _layersObj = config._layersObj;
- 
-                    
-                    // checks if Basemaps true 
+
+
+                    // checks if Basemaps true
                     var str = "";
                     for(var o in _layersObj){
                         str = o.toString();
                         (config[o] == true) ? layersObj[str] = _layersObj[str] : false;
                     }
-                    
-                  
+
+
                     //TODO Tiled and ArcGIS Dynamic from webMap und WMTS
                     function getBasemapFromWebMap(__Basemap){
                         var Layer = {};
-                        Layer.title = __Basemap.title; 
-                        Layer.icon =  config.appURL + "/images/basemap.png"; 
+                        Layer.title = __Basemap.title;
+                        Layer.icon =  config.appURL + "/images/basemap.png";
                         (__Basemap.baseMapLayers[0].url)? Layer.url = __Basemap.baseMapLayers[0].url : false;
-                        (__Basemap.baseMapLayers[0].templateUrl)? Layer.url = __Basemap.baseMapLayers[0].templateUrl : false; 
+                        (__Basemap.baseMapLayers[0].templateUrl)? Layer.url = __Basemap.baseMapLayers[0].templateUrl : false;
                         (__Basemap.baseMapLayers[0].type)? Layer.type = __Basemap.baseMapLayers[0].type : false;
                         (__Basemap.baseMapLayers[0].subDomains)? Layer.subDomains = __Basemap.baseMapLayers[0].subDomains.toString() : false;
                         (__Basemap.baseMapLayers[0].copyright)? Layer.copy = __Basemap.baseMapLayers[0].copyright : false;
@@ -371,14 +371,14 @@ function (
                             Layer.copy = __Basemap.baseMapLayers[0].layerObject.copyright;
                             Layer.tileInfo = {};
                             Layer.layersObject = {};
-                            Layer.tileInfo = __Basemap.baseMapLayers[0].tileInfo; 
+                            Layer.tileInfo = __Basemap.baseMapLayers[0].tileInfo;
                             Layer.layersObject = __Basemap.baseMapLayers[0].layerObject;
-                            Layer.title = __Basemap.baseMapLayers[0].title; 
+                            Layer.title = __Basemap.baseMapLayers[0].title;
                             Layer.type = "WMTS";
                         }
                         return Layer;
                     }
-                    layersObj["webBasemap"] = getBasemapFromWebMap(map.__Basemap);             
+                    layersObj["webBasemap"] = getBasemapFromWebMap(map.__Basemap);
                     //console.log(map.__Basemap);
 
 
@@ -388,7 +388,7 @@ function (
                     for (var i in layersObj) {
                         var Layer = layersObj[i];
                         if (Layer.type == "WebTiledLayer") {
-                         
+
                             Arr.push(new Basemap({
                                 title : Layer.title,
                                 thumbnailUrl : Layer.icon,
@@ -401,7 +401,7 @@ function (
 
                                 })]
                             }));
-                            
+
 
                         }
                         else if (Layer.type == "WMTS") {
@@ -412,12 +412,12 @@ function (
                                 layers : [new BasemapLayer({
                                     type : Layer.type,
                                     url : Layer.url,
-                                    tileInfo: Layer.tileInfo, 
+                                    tileInfo: Layer.tileInfo,
                                     layersObject: Layer.layersObject,
                                     copyright : Layer.copy
 
                                 })]
-                                
+
                             }));
                         }
                          else if (!Layer.type) {
@@ -441,9 +441,9 @@ function (
                         } else {
                             console.log(Layer.type + " not defined");
                         }
-                        
+
                     }
-                    
+
                     return Arr;
                 }
 
@@ -494,7 +494,7 @@ function (
                         }
                     }
                 });
-                
+
                 dojo.byId('webmap-toolbar-center').appendChild(toButton.domNode);
 
 
@@ -503,7 +503,7 @@ function (
                 on(basemapGallery, "selection-change", function() {
                     //close the basemap window when an item is selected
                     //destroy and recreate the overview map  - so the basemap layer is modified.
-                    
+
                     myThis._destroyOverviewMap(myThis);
                 });
                 */
@@ -520,15 +520,15 @@ function (
 
                 var size = (window.innerWidth / 5);
                 if(size <= 100){
-                    size = 100; 
+                    size = 100;
                 }
-          
-                var overLayer = new OpenStreetMapLayer(); //nur noch ein Layer 
+
+                var overLayer = new OpenStreetMapLayer(); //nur noch ein Layer
 
                 var overviewMapDijit = new OverviewMap({
                     map : map,
                     attachTo : "top-right",
-                    baseLayer: overLayer, //nur noch ein Layer 
+                    baseLayer: overLayer, //nur noch ein Layer
                     opacity : 0.5,
                     color : "#000000",
                     expandfactor : 1,
@@ -566,28 +566,28 @@ function (
                     //theme : "simpleGeocoder",
                     arcgisGeocoder : geocodeOptions
                 }, domConstruct.create('div'));
-                
+
                 geocoder.startup();
-                
+
                 on(geocoder, "find-results", function() {
                     var mapPoint;
                     var pic = new PictureMarkerSymbol("images/map_marker_base.png",48,48);
                     mapPoint = geocoder.results[0].extent.getCenter();
                     map.graphics.add(new Graphic(mapPoint, pic));
                 });
-                
+
                 on(geocoder, "clear", function() {
                     map.graphics.clear();
                 });
-                
-        
+
+
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                
+
                 var cp = new TooltipDialog({
                     id : 'SearchTool',
                     style : "height:auto; width:auto; border:none;"
                 });
-                
+
 
                 cp.set('content', geocoder.domNode);
 
@@ -604,8 +604,8 @@ function (
                     title : config.i18n.tools.search.title,
                     dropDown : cp
                 });
-               
-                
+
+
                 dojo.byId('webmap-toolbar-center').appendChild(button.domNode);
             });
 
@@ -619,15 +619,15 @@ function (
                     map : map,
                     id : 'measureTool'
                 }, domConstruct.create('div'));
-                
+
                 measure.startup();
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                
-                
+
+
                 domConstruct.create("div", {
                     id : "MeasureFloater"
                 }, "mapDiv");
-                
+
                 var fp = new FloatingPane({
                     title : config.i18n.tools.measure.title,
                     resizable : false,
@@ -636,9 +636,9 @@ function (
                     style : "position:absolute;top:0;left:60px;width:280px;height:175px;z-index:100;visibility:hidden;",
                     id : 'MeasureFloater'
                 }, dom.byId('MeasureFloater'));
-                
+
                 fp.startup();
-                
+
                 fp.setContent(measure);
 
 
@@ -676,7 +676,7 @@ function (
                     if (config.displayEditor == true) {
                         if (!editorWidget) {
                             disablePopups();
-                            
+
                             //disable map popups otherwise they interfere with measure clicks
                         } else {
                             console.log('Editor widget exists so no disabling');
@@ -719,7 +719,7 @@ function (
 
         /*** Editor ***/
         _createEditor : function(config, map, layers, layerInfo, clickHandler, clickListener) {
-            require(["esri/dijit/editing/Editor", "esri/dijit/editing/TemplatePicker", "dojo/domReady!"], function(Editor, TemplatePicker) {
+            require(["esri/dijit/editing/Editor", "esri/dijit/editing/TemplatePicker", "esri/dijit/AttributeInspector", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Editor, TemplatePicker, AttributeInspector, FeatureLayer) {
                 var editorWidget;
 
                 domConstruct.create("div", {
@@ -795,7 +795,7 @@ function (
                         id : "EditorDiv",
                         innerHTML : "<div id='TDiv'></div><div id='EDiv'></div>"
                     }, fp.containerNode);
-                    
+
                     if (editLayers.length > 0) {
                         var editLayerInfo = editLayers;
                         //add field infos if applicable - this will contain hints if defined in the popup. Also added logic to hide fields that have visible = false. The popup takes
@@ -806,7 +806,7 @@ function (
                             //-------------------------------------------------------------------------
                             //TODO arcgisUtils.createMap übernimmt keine capabilities -> ArcGis Bug ??
                             //try catch als Umgehung für arcgis online webmap
-                            
+
                             // try {
                                 var webMapLayer = config.webmap.itemData.operationalLayers;
                                 for (var l in webMapLayer) {
@@ -816,27 +816,27 @@ function (
                                         if(layer.featureLayer.capabilities){
                                             layer.featureLayer.capabilities = webMapLayer[l].capabilities;
                                         }
-                                        
+
                                     }
                                 }
                             // } catch(e) {
                                 // console.log(e);
                             // }
-                            
+
                             //--------------------------------------------------------------------------
                             if(layer.featureLayer.capabilities){
                                 var capabilities = layer.featureLayer.capabilities.split(",");
-                            
+
                                 var _Create = $.inArray('Create', capabilities) > -1;
                                 //var _Query = $.inArray('Query', capabilities) > -1;
                                 //var _Uploads = $.inArray('Uploads', capabilities) > -1;
                                 var _Update = $.inArray('Update', capabilities) > -1;
                                 var _Editing = $.inArray('Editing', capabilities) > -1;
-    
+
                                 layer.featureLayer.allowGeometryUpdates = _Editing;
                                 layer.isEditable = _Update;
                             }
-                            
+
 
                             if (layer.featureLayer && layer.featureLayer.infoTemplate && layer.featureLayer.infoTemplate.info && layer.featureLayer.infoTemplate.info.fieldInfos) {
                                 //only display visible fields
@@ -848,7 +848,7 @@ function (
                                         return {
                                             'fieldName' : field.name,
                                             'label' : 'Details',
-                                            stringFieldOption : esri.dijit.AttributeInspector.STRING_FIELD_OPTION_TEXTAREA
+                                            stringFieldOption : AttributeInspector.STRING_FIELD_OPTION_TEXTAREA
                                         };
                                     } else {
                                         return {
@@ -940,7 +940,7 @@ function (
 
                             var eLayer = layer;
 
-                            if ( eLayer instanceof esri.layers.FeatureLayer && eLayer.isEditable()) {
+                            if ( eLayer instanceof FeatureLayer && eLayer.isEditable()) {
                                 console.log(eLayer.capabilities);
                                 if (eLayer.capabilities && eLayer.capabilities === "Query") {
 
@@ -1020,7 +1020,7 @@ function (
 
         /*** CoordinatesOnRightClick ***/
         _CooOnRightClick : function(map) {
-            require(["dijit/form/Textarea", "esri/geometry/Point", "esri/geometry/Extent", "esri/dijit/Measurement", "dojo/domReady!"], function(Textarea, Point, Extent, Measurement) {
+            require(["dijit/form/Textarea", "esri/geometry/Point", "esri/geometry/Extent", "esri/dijit/Measurement", "esri/geometry/webMercatorUtils", "dojo/domReady!"], function(Textarea, Point, Extent, Measurement, WebMercatorUtils) {
                 // Creates right-click context menu for map
                 var textFeld1 = new Textarea({
                     id : "myText1",
@@ -1132,7 +1132,6 @@ function (
 
                     screenPoint = new Point(x - map.position.x, y - map.position.y);
                     mapPoint = map.toMap(screenPoint);
-                    //point = esri.geometry.webMercatorToGeographic(mapPoint);
 
                     // use function from esri/dijit/Measurement
                     var a = {};
@@ -1140,7 +1139,7 @@ function (
                     var crs = mapPoint.spatialReference;
                     //console.log(a);
                     if (crs.isWebMercator()) {
-                        point = esri.geometry.webMercatorToGeographic(mapPoint);
+                        point = WebMercatorUtils.webMercatorToGeographic(mapPoint);
                     } else {
                         point = measure_._getGCSLocation(a).mapPoint;
                     }
@@ -1154,7 +1153,7 @@ function (
         /*** Legende ***/
         _createLegend : function(map, layerInfo, config) {
             require(["esri/dijit/Legend", "dojo/domReady!"], function(Legend) {
-                
+
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 var legendDijit = new Legend({
                     map : map,
@@ -1162,7 +1161,7 @@ function (
                 }, domConstruct.create('div'));
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-                
+
                 var panLegend = new ContentPane({
                     title : config.i18n.tools.legend.label,
                     id : "panLegend",
@@ -1221,7 +1220,7 @@ function (
                 content : config.AppInfoTextStr
             });
 
-            
+
             //console.log(panInfo);
 
             var aContainer = dijit.byId("aContainer");
@@ -1265,7 +1264,7 @@ function (
             require(["esri/geometry/Extent", "esri/SpatialReference", "esri/tasks/GeometryService", "esri/geometry/Point", "esri/tasks/ProjectParameters", "dijit/form/CheckBox", "dojo/domReady!"], function(Extent, SpatialReference, GeometryService, esriPoint, ProjectParameters, CheckBox) {
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 var layerList = config.itemLayers;
-                
+
 
                 if (layerList.length > 0) {
                     //create a menu of layers
@@ -1315,7 +1314,7 @@ function (
                         id : "layerTable"
                     });
                     dojo.forEach(layerList, function(layer) {
-                        
+
                         var row1 = layerTable.insertRow(-1);
                         var row2 = layerTable.insertRow(-1);
                         var row3 = layerTable.insertRow(-1);
@@ -1351,7 +1350,7 @@ function (
                             intermediateChanges : true,
                             style : "width:160px;",
                             onChange : function(value) {
-                                var layObj = layer.layerObject; 
+                                var layObj = layer.layerObject;
                                 if (layer.layerObject.featureCollection) {
                                     //turn off all the layers in the feature collection even
                                     //though only the  main layer is listed in the layer list
@@ -1364,10 +1363,10 @@ function (
                                         layer.layerObject._fLayers[fl].setOpacity(value);
                                     }
                                 } else if (layer.layerObject.declaredClass == "esri.layers.KMLLayer") {
-                                    
+
                                     if(layer.layerObject._groundLyr){
                                         layer.layerObject._groundLyr.setOpacity(value);
-                                        
+
                                         for (var fl in layer.layerObject._fLayers) {
                                             layer.layerObject._fLayers[fl].setOpacity(value);
                                         }
@@ -1375,13 +1374,13 @@ function (
                                         var lays = layer.layerObject.getLayers();
                                             for (var fl in lays) {
                                                 var flay = lays[fl]._fLayers;
-                                                
+
                                                 for (var l in flay) {
                                                     flay[l].setOpacity(value);
                                                 }
                                             }
                                     }
-                                    
+
                                 } else {
                                     layer.layerObject.setOpacity(value);
                                 }
@@ -1542,7 +1541,7 @@ function (
                     var new_extent;
                     var pointArr = [];
                     var _pointArr = [round(extent.xmin), round(extent.ymin), round(extent.xmax), round(extent.ymax)];
-                    
+
                     function round(point){
                         var p = (Math.round(point * 1000) / 1000);
                         return p;
@@ -1696,10 +1695,10 @@ function (
                          }
                     });
                     geoLocate.startup();
-                    
-                    
-                    //geoLocate.symbol.url = config.appURL + '/images/map_marker_base.png'; 
-                    
+
+
+                    //geoLocate.symbol.url = config.appURL + '/images/map_marker_base.png';
+
                     //console.info(geoLocate);
 
                     var mylabel;
@@ -1715,7 +1714,7 @@ function (
                         onChange: function(evt) {
                             if(evt == true){
                                this.set("title",config.i18n.tools.locate.remove);
-                               geoLocate.locate();  
+                               geoLocate.locate();
                             }else{
                                geoLocate.clear();
                                this.set("title",config.i18n.tools.locate.title);
@@ -1724,13 +1723,13 @@ function (
                     });
 
                     dojo.byId('webmap-toolbar-center').appendChild(button.domNode);
- 
+
             });
 
         },
 
         /*** Print ***/
-        //TODO mit DLR Service geht noch nicht liegt aber an Service 
+        //TODO mit DLR Service geht noch nicht liegt aber an Service
         // keine Operationalen Layer wie WMS ???
         // Druck von Tiled keine Transparenz
         _createPrintDijit : function(config, map) {
@@ -1801,7 +1800,7 @@ function (
                 }
 
                 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                
+
                  var panPrint = new ContentPane({
                     title : config.i18n.tools.print.label,
                     id : "printInfo",
@@ -1809,7 +1808,7 @@ function (
                     iconClass : 'esriPrintIcon',
                     content : "<div id='print_'></div>"
                 });
-                
+
                 var aContainer = dijit.byId("aContainer");
                 aContainer.addChild(panPrint);
 
@@ -1875,7 +1874,7 @@ function (
                         tb.activate(tool);
                     });
 
-                   
+
                     var deselectBtn = new Button({
                             label : config.i18n.tools.draw.deselect,
                             title : config.i18n.tools.draw.deselectTool,
@@ -1883,9 +1882,9 @@ function (
                                 tb.deactivate();
                                 map.enableMapNavigation();
                             }
-                        });  
+                        });
                     deselectBtn.placeAt(dom.byId("deselect"));
-                    
+
                     var clearBtn = new Button({
                                 label : config.i18n.tools.draw.clear,
                                 title : config.i18n.tools.draw.clearTool,
@@ -1899,9 +1898,9 @@ function (
                                     getKmlBtn.set('disabled', true);
                                     getKmlBtn.set('title', config.i18n.tools.draw.getToolDe);
                                 }
-                            });  
+                            });
                     clearBtn.placeAt(dom.byId("clear"));
-                    
+
                     getKmlBtn = new Button({
                                 label : config.i18n.tools.draw.get,
                                 //title : config.i18n.tools.draw.getToolDe,
@@ -1911,18 +1910,18 @@ function (
                                     console.log(_GeometryArr[0].spatialReference.wkid); // = 4326
                                     if(_GeometryArr[0].spatialReference.wkid === 4326 || _GeometryArr[0].spatialReference.wkid === "4326"){
                                         console.log("test4");
-                                        createKML(_GeometryArr); 
+                                        createKML(_GeometryArr);
                                     }
                                     else{
                                         console.log("test3");
                                         console.log(_GeometryArr);
                                         projectArr(_GeometryArr,4326);
                                     }
-                                    
-                                    
-                                    
+
+
+
                                 }
-                            });  
+                            });
                     getKmlBtn.placeAt(dom.byId("getKml"));
                     getKmlBtn.set('disabled', true);
                     getKmlBtn.set('title', config.i18n.tools.draw.getToolDe);
@@ -1945,7 +1944,7 @@ function (
                         symbol = fillSymbol;
                     }
 
-                    
+
                     var Geometry;
                     if (evt.geometry.spatialReference.isWebMercator()) {
                         Geometry = webMercatorUtils.webMercatorToGeographic(evt.geometry);
@@ -1964,21 +1963,21 @@ function (
                 function projectArr (GeometryArr,wkid) {
                     config.statusbar.set("content", config.i18n.tools.draw.project);
                     config.statusbar.show();
-                    
+
                     var geometryService = new GeometryService(config.helperServices.geometry.url);
                     var PrjParams = new ProjectParameters();
                     PrjParams.geometries = GeometryArr;
                     var crs = new SpatialReference(wkid);
                     PrjParams.outSR = crs;
-                    
+
                     geometryService.project(PrjParams, function(Arr) {
                         console.log("project complete");
                         console.log(Arr);
-                        
-                        createKML(Arr);   
-                    });  
+
+                        createKML(Arr);
+                    });
                 }
-                
+
 
                 //TODO create KML geht nur wenn WebMercator oder geographic
                 function createKML(GeometryArr) {
@@ -1992,40 +1991,40 @@ function (
                             newWindow = window.open(uriContent, 'neuesDokument');
                         },
                         winOpenTextarea : function (txt){
-                            
+
                             var arr = txt.split("><");
                             var len = arr.length;
                             var newTxt = "";
-                            
+
                             for(var i = 0; i < len; i++){
                                 if(i < len -1){
-                                    newTxt += arr[i] +">"+ "\n" +"<";   
+                                    newTxt += arr[i] +">"+ "\n" +"<";
                                 }
                                 else{
                                     newTxt += arr[i];
                                 }
-                                
+
                             }
                             var wnd = window.open("", "_blank");
-                            
+
                             wnd.document.write('<h4>' + config.i18n.tools.draw.getKml + '</h4>'+'<textarea id="text" style="width:100%;height:95%">' + newTxt + '</textarea>');
                             wnd.document.close();
-                            
+
                         },
-                        
+
                         saveHTML5 : function(blob){
                             FileSaver(blob, "test.kml");
-                            
+
                             // var blob = new Blob([txt], {type: "text/plain;charset=utf-8"});
                             // FileSaver(blob, "helloworld.txt");
                         }
-                        
+
                     };
                     var kmlCont = "";
                     console.log(GeometryArr);
-                    
+
                     var kmlPoint, kmlLine, kmlPoly;
-                    
+
                     for (var e in GeometryArr) {
                         var paths, rings;
                         var _arr;
@@ -2071,7 +2070,7 @@ function (
                             console.log("geometryTyp not defined");
                         }
                     }
-                  
+
 
                     kml.kmlStr = '<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom"><Document><name>draw KML</name><Folder>' + kmlCont + '</Folder></Document></kml>';
 
@@ -2079,13 +2078,13 @@ function (
                         var blob = new Blob([kml.kmlStr], {type: "text/xml;charset=utf-8"});
                         kml.saveHTML5(blob);
                     }catch(e){
-                        kml.winOpenTextarea(kml.kmlStr);        
+                        kml.winOpenTextarea(kml.kmlStr);
                     }
-                    
+
                 }
 
-                //--------------------------------------------- 
-                var _content = '<div id="draDiv">' + '<div id="drawOptions">' + config.i18n.tools.draw.info + '<ul>' + '<li><div id="Point" title="' +config.i18n.tools.draw.point + '" class="drawPoint"></div>' + '<div id="Polyline" title="' +config.i18n.tools.draw.line + '" class="drawLine"></div>' + '<div id="Extent" title="' +config.i18n.tools.draw.rectangle + '" class="drawRect"></div>' + '<div id="Polygon" title="' +config.i18n.tools.draw.polygon + '" class="drawPoly"></div>' + '<div id="Ellipse" title="' +config.i18n.tools.draw.ellipsis + '" class="drawElli"></vdi></li>' + '</ul>' + 
+                //---------------------------------------------
+                var _content = '<div id="draDiv">' + '<div id="drawOptions">' + config.i18n.tools.draw.info + '<ul>' + '<li><div id="Point" title="' +config.i18n.tools.draw.point + '" class="drawPoint"></div>' + '<div id="Polyline" title="' +config.i18n.tools.draw.line + '" class="drawLine"></div>' + '<div id="Extent" title="' +config.i18n.tools.draw.rectangle + '" class="drawRect"></div>' + '<div id="Polygon" title="' +config.i18n.tools.draw.polygon + '" class="drawPoly"></div>' + '<div id="Ellipse" title="' +config.i18n.tools.draw.ellipsis + '" class="drawElli"></vdi></li>' + '</ul>' +
                 '</div>' + '<div id="drawClear">' + '<ul>' + '<li id="deselect" class="drawButton"></li>' + '<li id="clear" class="drawButton"></li>' + '<li id="getKml"  class="drawButton" disabled></li>' + '</ul>' + '</div>' + '</div>';
 
 
@@ -2138,25 +2137,25 @@ function (
 
             });
         },
-        
+
         /*** LayerSwipe ***/
         _createLayerSwipe : function(map, layerInfo, config) {
             require(["esri/dijit/LayerSwipe", "dojo/domReady!"], function(LayerSwipe) {
-                
-                //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+
+                //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 //only if Layers on the Map
                 if(layerInfo.length > 0){
-                    
+
                     var swipeHelp = domConstruct.create("div",{id:"swipeHelp"});
                     //-------------
                     var dropDown = domConstruct.create("select",{id:"swipeDrop"});
                     //var options = [{text: "January",val: "jan",},{text: "February",val: "feb",},{text: "March",val: "mar",}];
                     var options = layerInfo;
-                     
+
                     for (var i = 0; i < options.length; i++){
                         dropDown[i] = new Option(options[i].title,options[i].layer.id,false,false);
                     }
-                    
+
                     //---------------------------------------
                     var swipeLayer = map.getLayer(options[0].layer.id);
                     var swipeWidget = new LayerSwipe({
@@ -2165,23 +2164,23 @@ function (
                     layers: [swipeLayer]
                     }, domConstruct.create("div", {id : "swipeDiv"}, "mapDiv_layers"));
                     swipeWidget.startup();
-                    swipeWidget.disable(); 
+                    swipeWidget.disable();
                      //---------------------------------------
-                 
-                    
-                    
-                   
+
+
+
+
                     dropDown.onchange = function () {
                         swipeWidget.layers.splice(0,1);
                         var select = dropDown.options[dropDown.selectedIndex].value;
                         var layer = map.getLayer(select);
                         swipeWidget.layers.push(layer);
-                        
-                        //console.log(dropDown.options[dropDown.selectedIndex].value); 
+
+                        //console.log(dropDown.options[dropDown.selectedIndex].value);
                         //console.log(swipeWidget.layers);
                     };
-                    
-                    
+
+
                     var startSwipe = new Button({
                                     label : config.i18n.tools.swipe.start,
                                     title : config.i18n.tools.swipe.start,
@@ -2189,7 +2188,7 @@ function (
                                         swipeWidget.enable();
                                     }
                                 });
-                                
+
                     var endSwipe = new Button({
                                     label : config.i18n.tools.swipe.end,
                                     title : config.i18n.tools.swipe.end,
@@ -2197,29 +2196,29 @@ function (
                                         swipeWidget.disable();;
                                     }
                                 });
-    
-                              
+
+
                     swipeHelp.appendChild(dropDown);
                     startSwipe.placeAt(swipeHelp);
                     endSwipe.placeAt(swipeHelp);
                     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    
-                    
+
+
                     var panLayerSwipe = new ContentPane({
                         title : config.i18n.tools.swipe.label,
                         id : "panLayerSwipe",
                         iconClass : 'esriSwipeIcon',
-                        content : swipeHelp 
+                        content : swipeHelp
                     });
-    
+
                     var aContainer = dijit.byId("aContainer");
                     aContainer.addChild(panLayerSwipe);
-    
+
                     var mylabel;
                     (config.appIsMobile == true) ? mylabel = " " : mylabel = config.i18n.tools.swipe.label;
-    
+
                     (config.displayButtonLabels == true) ? mylabel = config.i18n.tools.swipe.label : mylabel = " ";
-    
+
                     var toButton = new ToggleButton({
                         showLabel : true,
                         label : mylabel,
@@ -2231,9 +2230,9 @@ function (
                             //display the left panel if hidden
                             var leftPaneWidth = dojo.style(dom.byId("rightPane"), "width");
                             if (leftPaneWidth === 0) {
-    
+
                                 aContainer.selectChild(panLayerSwipe);
-    
+
                                 dojo.style(dom.byId("rightPane"), "width", config.rightPaneToggleWidth);
                                 dijit.byId("BorderContainer").resize();
                             } else {
@@ -2242,7 +2241,7 @@ function (
                             }
                         }
                     });
-    
+
                     dojo.byId('webmap-toolbar-center').appendChild(toButton.domNode);
                 }
             });

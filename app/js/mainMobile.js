@@ -596,7 +596,7 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
         },
         /*** Editor ***/
         _createEditor : function(config, map, layers, layerInfo, clickHandler, clickListener) {
-            require(["esri/dijit/editing/Editor", "esri/dijit/editing/TemplatePicker", "dojo/domReady!"], function(Editor, TemplatePicker) {
+            require(["esri/dijit/editing/Editor", "esri/dijit/editing/TemplatePicker", "esri/dijit/AttributeInspector", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Editor, TemplatePicker, AttributeInspector, FeatureLayer) {
                 var editorWidget;
 
                 var icon = '<span data-dojo-attach-point="iconNode" class="dijitReset dijitInline dijitIcon esriEditIcon"></span><span class="dijitTitlePaneTextNode" data-dojo-attach-point="titleNode" style="-moz-user-select: none;">' + config.i18n.tools.editor.label + '</span>';
@@ -707,7 +707,7 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
                                         return {
                                             'fieldName' : field.name,
                                             'label' : 'Details',
-                                            stringFieldOption : esri.dijit.AttributeInspector.STRING_FIELD_OPTION_TEXTAREA
+                                            stringFieldOption : AttributeInspector.STRING_FIELD_OPTION_TEXTAREA
                                         };
                                     } else {
                                         return {
@@ -798,7 +798,7 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
 
                             var eLayer = layer;
 
-                            if ( eLayer instanceof esri.layers.FeatureLayer && eLayer.isEditable()) {
+                            if ( eLayer instanceof FeatureLayer && eLayer.isEditable()) {
                                 //console.log(eLayer.capabilities);
                                 if (eLayer.capabilities && eLayer.capabilities === "Query") {
 
@@ -878,7 +878,7 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
 
         /*** CoordinatesOnRightClick ***/
         _CooOnRightClick : function(map) {
-            require(["dijit/form/Textarea", "esri/geometry/Point", "esri/geometry/Extent", "esri/dijit/Measurement", "dojo/domReady!"], function(Textarea, Point, Extent, Measurement) {
+            require(["dijit/form/Textarea", "esri/geometry/Point", "esri/geometry/Extent", "esri/dijit/Measurement", "esri/geometry/webMercatorUtils", "dojo/domReady!"], function(Textarea, Point, Extent, Measurement, WebMercatorUtils) {
                 // Creates right-click context menu for map
                 var textFeld1 = new Textarea({
                     id : "myText1",
@@ -991,7 +991,6 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
 
                     screenPoint = new Point(x - map.position.x, y - map.position.y);
                     mapPoint = map.toMap(screenPoint);
-                    //point = esri.geometry.webMercatorToGeographic(mapPoint);
 
                     // use function from esri/dijit/Measurement
                     var a = {};
@@ -999,7 +998,7 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
                     var crs = mapPoint.spatialReference;
                     //console.log(a);
                     if (crs.isWebMercator()) {
-                        point = esri.geometry.webMercatorToGeographic(mapPoint);
+                        point = WebMercatorUtils.webMercatorToGeographic(mapPoint);
                     } else {
                         point = measure_._getGCSLocation(a).mapPoint;
                     }
@@ -1978,4 +1977,4 @@ define(["dojo/ready", "dojo/_base/declare", "dojo/_base/lang", "esri/arcgis/util
          }
          */
     });
-}); 
+});
