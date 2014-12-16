@@ -1,5 +1,11 @@
 {
   "name": "esri-application-boilerplate-viewer",
+  "author": "Mathias Boeck <bbmatdd@gmail.com> (https://github.com/boeckMt)",
+  "description": "js webmapping client",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boeckMt/esri-application-boilerplate-viewer.git"
+  },
   "version": "0.1.0",
   "main": "gruntfile.js",
   "dependencies": {
