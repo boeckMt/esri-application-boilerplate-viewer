@@ -4,6 +4,7 @@
   "main": "gruntfile.js",
   "description":"Dependencies for esri js api run >>grunt slurp before",
   "dependencies": {
+    "jquery": "2.1.1",
     "dijit": "#1.10.0",
     "dojo": "#1.10.0",
     "dojox": "#1.10.0",
